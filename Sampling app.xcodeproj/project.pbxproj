@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,15 @@
 		211D8D6925DD906A00FD4249 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211D8D6825DD906A00FD4249 /* CardViewController.swift */; };
 		211D8D6E25DD92F900FD4249 /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211D8D6D25DD92F900FD4249 /* CardViewController.xib */; };
 		211D8D7625DDA63600FD4249 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211D8D7525DDA63600FD4249 /* MainScreenViewController.swift */; };
+		212F037C262398B10096042F /* ViewAllCorrect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F037B262398B10096042F /* ViewAllCorrect.swift */; };
+		212F037F26239D580096042F /* HelpFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F037E26239D580096042F /* HelpFunctions.swift */; };
+		212F03822623A45C0096042F /* ViewNotFull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F03812623A45C0096042F /* ViewNotFull.swift */; };
+		212F03852623A7390096042F /* ViewWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F03842623A7390096042F /* ViewWelcome.swift */; };
 		213310CB25ED4A2D0032B7E1 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213310CA25ED4A2D0032B7E1 /* QuestionViewController.swift */; };
 		213310CE25ED6CC10032B7E1 /* ButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213310CD25ED6CC10032B7E1 /* ButtonsController.swift */; };
+		2133BB9C2620A27A008F1AC5 /* Siesta in Frameworks */ = {isa = PBXBuildFile; productRef = 2133BB9B2620A27A008F1AC5 /* Siesta */; };
+		2133BB9E2620A27A008F1AC5 /* SiestaUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2133BB9D2620A27A008F1AC5 /* SiestaUI */; };
+		2133BBA12620A2A9008F1AC5 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2133BBA02620A2A9008F1AC5 /* RestApi.swift */; };
 		21365A8925E4084F009024BF /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A8825E4084F009024BF /* CustomLabel.swift */; };
 		21365A8D25E410AB009024BF /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A8C25E410AB009024BF /* RadioButton.swift */; };
 		21365A9025E4110D009024BF /* RadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A8F25E4110D009024BF /* RadioButtonsController.swift */; };
@@ -49,8 +56,13 @@
 		211D8D6825DD906A00FD4249 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		211D8D6D25DD92F900FD4249 /* CardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
 		211D8D7525DDA63600FD4249 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		212F037B262398B10096042F /* ViewAllCorrect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllCorrect.swift; sourceTree = "<group>"; };
+		212F037E26239D580096042F /* HelpFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpFunctions.swift; sourceTree = "<group>"; };
+		212F03812623A45C0096042F /* ViewNotFull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNotFull.swift; sourceTree = "<group>"; };
+		212F03842623A7390096042F /* ViewWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWelcome.swift; sourceTree = "<group>"; };
 		213310CA25ED4A2D0032B7E1 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		213310CD25ED6CC10032B7E1 /* ButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsController.swift; sourceTree = "<group>"; };
+		2133BBA02620A2A9008F1AC5 /* RestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
 		21365A8825E4084F009024BF /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		21365A8C25E410AB009024BF /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		21365A8F25E4110D009024BF /* RadioButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonsController.swift; sourceTree = "<group>"; };
@@ -89,12 +101,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2133BB9C2620A27A008F1AC5 /* Siesta in Frameworks */,
+				2133BB9E2620A27A008F1AC5 /* SiestaUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2133BBA32620A2FB008F1AC5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2133BBA42620A30F008F1AC5 /* Entity */,
+				2133BBA02620A2A9008F1AC5 /* RestApi.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		2133BBA42620A30F008F1AC5 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2133BBA52620A351008F1AC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				211D8D7525DDA63600FD4249 /* MainScreenViewController.swift */,
+				21933FDD25DBFFD600CBF7B1 /* ViewController.swift */,
+				213310CA25ED4A2D0032B7E1 /* QuestionViewController.swift */,
+				211D8D6825DD906A00FD4249 /* CardViewController.swift */,
+				21C0F6D425E6BFC70081E8C1 /* CustomTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		21365A8B25E4107E009024BF /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +180,8 @@
 		21933FD825DBFFD600CBF7B1 /* Sampling app */ = {
 			isa = PBXGroup;
 			children = (
+				2133BBA52620A351008F1AC5 /* View */,
+				2133BBA32620A2FB008F1AC5 /* API */,
 				2187AE3025E90A210093D859 /* Icons */,
 				21C0F6EC25E6EDEF0081E8C1 /* Questions */,
 				21C0F6DE25E6EC950081E8C1 /* Help Lib */,
@@ -145,22 +189,20 @@
 				21365A8B25E4107E009024BF /* Custom Elements */,
 				21933FD925DBFFD600CBF7B1 /* AppDelegate.swift */,
 				21933FDB25DBFFD600CBF7B1 /* SceneDelegate.swift */,
-				21933FDD25DBFFD600CBF7B1 /* ViewController.swift */,
 				21933FDF25DBFFD600CBF7B1 /* Main.storyboard */,
 				21933FE525DBFFD700CBF7B1 /* Assets.xcassets */,
 				21933FE725DBFFD700CBF7B1 /* LaunchScreen.storyboard */,
 				21933FEA25DBFFD700CBF7B1 /* Info.plist */,
 				21933FE225DBFFD600CBF7B1 /* Sampling_app.xcdatamodeld */,
-				21C0F6D425E6BFC70081E8C1 /* CustomTableViewCell.swift */,
-				211D8D6825DD906A00FD4249 /* CardViewController.swift */,
-				211D8D7525DDA63600FD4249 /* MainScreenViewController.swift */,
 				2177573E25E3EC8000998C86 /* QuestionControllerView.swift */,
 				21365A9225E41270009024BF /* Question3.swift */,
 				21365A9D25E425F8009024BF /* Question4.swift */,
 				21C0F6D725E6C0910081E8C1 /* Question5.swift */,
 				217DFD0725E9143400083823 /* Question6.swift */,
-				213310CA25ED4A2D0032B7E1 /* QuestionViewController.swift */,
 				213C38A425EE71D500781059 /* UserNotification.swift */,
+				212F037B262398B10096042F /* ViewAllCorrect.swift */,
+				212F03812623A45C0096042F /* ViewNotFull.swift */,
+				212F03842623A7390096042F /* ViewWelcome.swift */,
 			);
 			path = "Sampling app";
 			sourceTree = "<group>";
@@ -188,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				21365A9A25E424C9009024BF /* color.swift */,
+				212F037E26239D580096042F /* HelpFunctions.swift */,
 			);
 			path = "Help Lib";
 			sourceTree = "<group>";
@@ -226,6 +269,10 @@
 			dependencies = (
 			);
 			name = "Sampling app";
+			packageProductDependencies = (
+				2133BB9B2620A27A008F1AC5 /* Siesta */,
+				2133BB9D2620A27A008F1AC5 /* SiestaUI */,
+			);
 			productName = "Sampling app";
 			productReference = 21933FD625DBFFD600CBF7B1 /* Sampling app.app */;
 			productType = "com.apple.product-type.application";
@@ -253,6 +300,9 @@
 				Base,
 			);
 			mainGroup = 21933FCD25DBFFD600CBF7B1;
+			packageReferences = (
+				2133BB9A2620A27A008F1AC5 /* XCRemoteSwiftPackageReference "siesta" */,
+			);
 			productRefGroup = 21933FD725DBFFD600CBF7B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -291,9 +341,12 @@
 				211D8D6925DD906A00FD4249 /* CardViewController.swift in Sources */,
 				21C0F6D825E6C0910081E8C1 /* Question5.swift in Sources */,
 				21365A8925E4084F009024BF /* CustomLabel.swift in Sources */,
+				212F037C262398B10096042F /* ViewAllCorrect.swift in Sources */,
 				21365A8D25E410AB009024BF /* RadioButton.swift in Sources */,
 				21C0F6EE25E6EE140081E8C1 /* TableQuestion.swift in Sources */,
+				212F03852623A7390096042F /* ViewWelcome.swift in Sources */,
 				21C0F6D525E6BFC70081E8C1 /* CustomTableViewCell.swift in Sources */,
+				2133BBA12620A2A9008F1AC5 /* RestApi.swift in Sources */,
 				21365A9B25E424C9009024BF /* color.swift in Sources */,
 				211D8D7625DDA63600FD4249 /* MainScreenViewController.swift in Sources */,
 				211D8D6225DD8DB100FD4249 /* CustomView.swift in Sources */,
@@ -311,6 +364,8 @@
 				21933FDC25DBFFD600CBF7B1 /* SceneDelegate.swift in Sources */,
 				217DFD0825E9143400083823 /* Question6.swift in Sources */,
 				21D9FE5C25E6F0350024969B /* ContentSizedTableView.swift in Sources */,
+				212F03822623A45C0096042F /* ViewNotFull.swift in Sources */,
+				212F037F26239D580096042F /* HelpFunctions.swift in Sources */,
 				21D309CF25DFC30000897A1A /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +566,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2133BB9A2620A27A008F1AC5 /* XCRemoteSwiftPackageReference "siesta" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bustoutsolutions/siesta";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2133BB9B2620A27A008F1AC5 /* Siesta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2133BB9A2620A27A008F1AC5 /* XCRemoteSwiftPackageReference "siesta" */;
+			productName = Siesta;
+		};
+		2133BB9D2620A27A008F1AC5 /* SiestaUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2133BB9A2620A27A008F1AC5 /* XCRemoteSwiftPackageReference "siesta" */;
+			productName = SiestaUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		21933FE225DBFFD600CBF7B1 /* Sampling_app.xcdatamodeld */ = {

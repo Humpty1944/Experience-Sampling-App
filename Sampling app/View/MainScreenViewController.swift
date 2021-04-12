@@ -44,6 +44,7 @@ class MainScreenViewController: UIViewController{
         self.navigationItem.hidesBackButton = true
         createRect(size: entryFill.count)
         putData()
+        HelpFunction.deleteAll()
     }
     
     func putData(){
@@ -84,7 +85,7 @@ class MainScreenViewController: UIViewController{
     
     @IBAction func doTest(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(identifier: "QuestionViewController") as! QuestionViewController
+        let viewController = storyboard.instantiateViewController(identifier: "ViewWelcome") as! ViewWelcome
         //navigationController?.setViewControllers([viewController], animated:true)
         self.navigationController?.pushViewController(viewController, animated: false)
     }

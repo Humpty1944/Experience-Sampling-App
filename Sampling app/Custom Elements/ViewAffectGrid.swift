@@ -7,10 +7,21 @@
 
 import Foundation
 import UIKit
+
+protocol AffectionGridDelegate: AnyObject {
+  func affectionGridLocation(_ affectionGrid: ViewAffectGrid, location: CGPoint)
+}
 @IBDesignable
 final class ViewAffectGrid: UIView {
+    internal init( currLocation: CGPoint, frame: CGRect){
+        self.currLocation=currLocation
+        super.init(frame: frame)
     
+    }
+    
+    var isDrawCall:Bool?
     var currLocation:CGPoint=CGPoint(x: -1000, y: -1000)
+    weak var delegate : AffectionGridDelegate?
 
     @IBInspectable
     var segments: [String] = ["Стресс", "Тревога", "Возбуждение", "Негативный", "Позитивный", "Депрессия", "Сонный", "Расслабленность"]
@@ -52,6 +63,7 @@ final class ViewAffectGrid: UIView {
     
     @objc
     private func didTap(recognizer: UITapGestureRecognizer) {//change
+        
         let location = recognizer.location(in: self)
         if let viewWithTag = self.viewWithTag(9999) {
             viewWithTag.removeFromSuperview()
@@ -63,6 +75,24 @@ final class ViewAffectGrid: UIView {
         tapPlace.backgroundColor = color.UIColorFromRGB(rgbValue: 0x4198FF)
         tapPlace.layer.cornerRadius=tapPlace.bounds.width/2
         self.addSubview(tapPlace)
+        currLocation = location
+        self.delegate?.affectionGridLocation(self, location: currLocation)
+        
+    }
+    
+    public func drawLocation(location: CGPoint, view:UIView){
+       // isDrawCall=true
+        if let viewWithTag = self.viewWithTag(9999) {
+            viewWithTag.removeFromSuperview()
+        }
+        var tapPlace: UIView
+       
+        let rectFrame: CGRect = CGRect(x:location.x-30, y:location.y-30, width:20, height:20)
+        tapPlace=UIView(frame: rectFrame)
+        tapPlace.tag=9999
+        tapPlace.backgroundColor = color.UIColorFromRGB(rgbValue: 0x4198FF)
+        tapPlace.layer.cornerRadius=tapPlace.bounds.width/2
+        view.addSubview(tapPlace)
         currLocation = location
         
     }
@@ -93,9 +123,14 @@ final class ViewAffectGrid: UIView {
         greenView.layer.borderColor=UIColor.darkGray.cgColor
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTap(recognizer:)))
         greenView.addGestureRecognizer(tap)
+        
         drawAllLines(basicView: greenView, width: rectWidth, height: rectHeight,isHorizontal:true )
         drawAllLines(basicView: greenView, width: rectWidth, height: rectHeight,isHorizontal:false )
         addLabels(rectFrame: rectFrame)
+        if currLocation.x != -1000 && currLocation.y != -1000{
+           
+                    drawLocation(location: currLocation, view: greenView)
+                }
         self.addSubview(greenView)
         
     }

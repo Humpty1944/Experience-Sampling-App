@@ -7,7 +7,18 @@
 
 import UIKit
 @IBDesignable class CustomButton: UIButton {
-    
+    struct Holder {
+            static var index:Int = -1
+        }
+    @IBInspectable
+        var index:Int {
+            get {
+                return Holder.index
+            }
+            set(newValue) {
+                Holder.index = newValue
+            }
+        }
     override var isSelected: Bool {
         didSet {
             toggleButon()
@@ -30,7 +41,9 @@ import UIKit
    
 }
 extension UIButton {
+    
    
+        
     /// Радиус гараницы
     @IBInspectable override var cornerRadius: CGFloat {
         set { layer.cornerRadius = newValue  }
@@ -46,4 +59,5 @@ extension UIButton {
         set { layer.borderColor = newValue?.cgColor  }
         get { return UIColor(cgColor: layer.borderColor ?? UIColor.blue as! CGColor) }
     }
+   
 }

@@ -5,13 +5,31 @@
 //  Created by Назарова on 22.02.2021.
 //
 import  UIKit
+@objc protocol CustomSliderDelegate {
+  
+    @objc func customSliderMovement(customSlider: CustomSlider?, value: Float, index: Int)
+}
+
+@objc protocol CustomSliderLabelsDelegate {
+ 
+    @objc func customSliderLabelsMovement(customSliderLabels: CustomSliderLabels?, value: Float, index: Int)
+}
+
 @IBDesignable
 class CustomSliderLabels:UISlider{
-   
+    internal init(text: String, frame: CGRect) {
+        self.number.text=text
+        
+        super.init(frame: frame)
+        configure()
+    }
+    
+    weak var delegate : CustomSliderLabelsDelegate?
     @IBInspectable
     var segments: String = "Стресс"
     var number:UILabel = UILabel()
     var type:UILabel = UILabel()
+    var index_pos:Int = -1
 override init(frame: CGRect) {
     super.init(frame: frame)
     
@@ -26,12 +44,12 @@ required init?(coder aDecoder: NSCoder) {
 
     private func configure() {
         self.addTarget(self, action: #selector(valueChangedOfSlider(slider:)), for: .valueChanged)
-        self.value=5
+        //self.value=5
 
     }
     override func draw(_ rect: CGRect) {
 
-        number.text=""
+        //number.text=""
         number.layer.masksToBounds = true
         number.textColor=UIColor.darkGray
         number.font = UIFont.systemFont(ofSize: 14)
@@ -63,12 +81,16 @@ required init?(coder aDecoder: NSCoder) {
     @objc func valueChangedOfSlider(slider: UISlider)
     {
         number.text=String(Int(self.value))
+        delegate?.customSliderLabelsMovement(customSliderLabels: self, value: self.value, index: index_pos)
     }
      
 }
 
 @IBDesignable
     class CustomSlider: UISlider {
+        
+        var index_pos:Int = -1
+        weak var delegate : CustomSliderDelegate? 
         @IBInspectable
         var segments: [String] = ["Стресс", "Тревога"]
         var firstWord:UILabel = UILabel()
@@ -97,8 +119,18 @@ required init?(coder aDecoder: NSCoder) {
             }
             
               createLabels()
+            self.addTarget(self, action: #selector(onSliderValChanged(slider:event:)), for: .valueChanged)
         }
-        
+        @objc func onSliderValChanged(slider: UISlider, event: UIEvent) {
+            if let touchEvent = event.allTouches?.first {
+                switch touchEvent.phase {
+                case .ended:
+                    delegate?.customSliderMovement(customSlider: self, value: self.value, index: index_pos )
+                default:
+                    break
+                }
+            }
+        }
         func createLabels(){
             firstWord.text=segments[1]
             firstWord.textColor=color.UIColorFromRGB(rgbValue: 0x6C6C6C)
@@ -120,5 +152,6 @@ required init?(coder aDecoder: NSCoder) {
 
 
         }
+        
         
 }

@@ -7,15 +7,43 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController, RadioButtonControllerDelegate, UITableViewDataSource, UITableViewDelegate {
-    func didSelectButton(selectedButton: RadioButton?) {
+class QuestionViewController: UIViewController, RadioButtonControllerDelegate, UITableViewDataSource, UITableViewDelegate, CustomTableViewCellDelegate, AffectionGridDelegate, CustomSliderDelegate, CustomSliderLabelsDelegate {
+
+    
+    func customSliderLabelsMovement(customSliderLabels: CustomSliderLabels?, value: Float, index: Int) {
         
+        defaults.setValue(value, forKey: String(questionNumber)+"_"+String(index))
+        HelpFunction.addDict(position: questionNumber, index:index)
+    }
+    
+    func customSliderMovement(customSlider: CustomSlider?, value: Float,  index: Int) {
+       
+        defaults.setValue(value, forKey: String(questionNumber)+"_"+String(index))
+        HelpFunction.addDict(position: questionNumber, index:index)
+    }
+    
+    func affectionGridLocation(_ affectionGrid: ViewAffectGrid, location: CGPoint) {
+        defaults.setValue(NSCoder.string(for: location), forKey: String(questionNumber)+"_")
+        HelpFunction.addDict(position: questionNumber, index:-1)
+    }
+    
+    func customTableViewCell(_ customTableViewCell: CustomTableViewCell, indexButton: Int) {
+        
+        defaults.setValue(indexButton, forKey: String(questionNumber)+"_"+String(customTableViewCell.index_row))
+        HelpFunction.addDict(position: questionNumber, index:customTableViewCell.index_row)
+    }
+    
+    func didSelectButton(selectedButton: RadioButton?, index:Int) {
+        if index != -1{
+        defaults.setValue(index, forKey: String(questionNumber)+"_")
+            HelpFunction.addDict(position: questionNumber, index:-1)
+        }
     }
     
     let data = ["One","Two","Three","Four","Five","Six","Seven","Eight"]
     var questionNumber:Int=1
     var isFirstQuestion:Bool=true
-
+    let defaults = UserDefaults.standard
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var lableQuestionNumber: UILabel!
     @IBOutlet weak var labelQuestionText: UILabel!
@@ -40,7 +68,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
         self.view.isUserInteractionEnabled = true
         mainView.isUserInteractionEnabled = true
         scrollView.isUserInteractionEnabled = true
-        print(questionNumber)
+      
        // if questionNumber==1{
          //   removeReturnButton()
        // }
@@ -56,7 +84,13 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
         }
         //buttonNextQuestion.removeFromSuperview()
         var buttonNext: UIButton = UIButton()
+        if questionNumber == 5{
+            buttonNext.setTitle("Закончить", for: .normal)
+        }
+        else{
+        
         buttonNext.setTitle("Продолжить", for: .normal)
+        }
         buttonNext.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15.0)
         buttonNext.setTitleColor(color.UIColorFromRGB(rgbValue: 0x4198FF), for: .normal)
         buttonNext.layer.borderColor = color.UIColorFromRGB(rgbValue: 0x4198FF).cgColor
@@ -68,7 +102,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
         buttonNext.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -10).isActive=true
         buttonNext.heightAnchor.constraint(equalToConstant: 50).isActive=true
         buttonNext.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        if questionNumber != 1{
+        if questionNumber != 1 || (HelpFunction.isReturn == true && HelpFunction.questions.last == questionNumber){
             var buttonReturn: UIButton = UIButton()
            // buttonReturn.setTitle("Продолжить", for: .normal)
             let image = UIImage(systemName: "arrow.turn.up.left")
@@ -97,41 +131,76 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
     @objc func buttonPreAction(sender: UIButton!) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "QuestionViewController") as! QuestionViewController
+        if HelpFunction.isReturn == true{
+            
+            viewController.questionNumber = HelpFunction.getPrevForgetQuestionNumber()
+            
+        }
+        else{
         viewController.questionNumber=self.questionNumber-1
+        }
         self.navigationController?.popViewController(animated: true)
         }
-    @IBAction func previousQuestion(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(identifier: "QuestionViewController") as! QuestionViewController
-        viewController.questionNumber=self.questionNumber-1
-        self.navigationController?.popViewController(animated: true)
-    }
+//    @IBAction func previousQuestion(_ sender: Any) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = storyboard.instantiateViewController(identifier: "QuestionViewController") as! QuestionViewController
+//        viewController.questionNumber=self.questionNumber-1
+//        self.navigationController?.popViewController(animated: true)
+//    }
     
     @objc func buttonAction(sender: UIButton!) {
-        print("next")
+      
+        if self.questionNumber+1 == 6 || HelpFunction.questions.count == HelpFunction.pos || (HelpFunction.isReturn == true && HelpFunction.questions.isEmpty == true){
+            if HelpFunction.checkReceiveAllAnswers()==true{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(identifier: "ViewAllCorrect") as! ViewAllCorrect
+            //viewController.questionNumber=self.questionNumber+1
+            self.navigationController?.pushViewController(viewController, animated: true)
+            }
+            else{
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyboard.instantiateViewController(identifier: "ViewNotFull") as! ViewNotFull
+                //viewController.questionNumber=self.questionNumber+1
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+        } else{
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "QuestionViewController") as! QuestionViewController
-        viewController.questionNumber=self.questionNumber+1
+            if HelpFunction.isReturn == true{
+               
+                viewController.questionNumber = HelpFunction.getNextForgetQuestionNumber()
+            }
+            else{
+            viewController.questionNumber=self.questionNumber+1
+            }
+           // viewController.questionNumber=self.questionNumber+1
+           
         self.navigationController?.pushViewController(viewController, animated: true)
+            
         }
-    @IBAction func nextQuestion(_ sender: Any) {
-        print("next")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(identifier: "QuestionViewController") as! QuestionViewController
-        viewController.questionNumber=self.questionNumber+1
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
+        }
+//    @IBAction func nextQuestion(_ sender: Any) {
+//        if self.questionNumber+1 == 6{
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let viewController = storyboard.instantiateViewController(identifier: "ViewAllCorrect") as! ViewAllCorrect
+//            //viewController.questionNumber=self.questionNumber+1
+//            self.navigationController?.pushViewController(viewController, animated: true)
+//        } else{
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = storyboard.instantiateViewController(identifier: "QuestionViewController") as! QuestionViewController
+//        viewController.questionNumber=self.questionNumber+1
+//        self.navigationController?.pushViewController(viewController, animated: true)
+//        }
+//    }
     
     func getQuestion(){
-        let help=Int.random(in: 0..<5)
+        
         lableQuestionNumber.text!+=" "+String(questionNumber)
         if questionNumber==1{
-            //generateTableView()
-            //generateSimpleSlider(number: 7)
-            generateRadioGroup(number: 7)
+            generateRadioGroup(number: 3)
         }
         else if questionNumber==2{
-            generateSimpleSlider(number: 7)
+            generateSimpleSlider(number: 3)
         }
         else if questionNumber==3{
             generateTableView()
@@ -161,16 +230,31 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
        // }
 
     }
+    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return defaults.object(forKey: key) != nil && defaults.string(forKey: key) != ("-9999") && defaults.string(forKey: key) != ("{-1000, -1000}")
+    }
     func generateSliders(){
         var sliders: [CustomSlider] = [CustomSlider]()
         var height=0
+        var value:Float = 3
+       
         for i in 0..<3{
+          
+            if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+String(i))==true{
+                value = defaults.object(forKey: String(questionNumber)+"_"+String(i)) as! Float
+               
+                
+            }
             var slider: CustomSlider = CustomSlider()
+            slider.delegate=self
+            
             slider.maximumValue=10
             slider.minimumValue=0
+            slider.index_pos = i
             slider.minimumTrackTintColor = color.UIColorFromRGB(rgbValue: 0x6C6C6C)
             slider.maximumTrackTintColor = color.UIColorFromRGB(rgbValue: 0x6C6C6C)
-            slider.value=5
+            slider.value=value
             mainView.addSubview(slider)
             slider.translatesAutoresizingMaskIntoConstraints = false
             if i==0{
@@ -181,8 +265,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
                 slider.topAnchor.constraint(equalTo: sliders[i-1].bottomAnchor, constant: 60).isActive=true
 
             }
-            //slider.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: 26).isActive=true
-           // slider.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -26).isActive=true
+           
             slider.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive=true
             slider.widthAnchor.constraint(equalToConstant: 275).isActive=true
             slider.heightAnchor.constraint(equalToConstant: 31).isActive=true
@@ -193,7 +276,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
                 updateConstraints(number: 40)
                 height-=100
             }
-
+           
         }
         mainView.sizeToFit()
     }
@@ -201,13 +284,23 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
         var sliders: [CustomSliderLabels]=[CustomSliderLabels]()
         var height=0
         for i in 0..<number{
-            var slider: CustomSliderLabels = CustomSliderLabels()
-            slider.segments = "First "+String(1)
+            var value : Float = 5.0
+            var text = ""
+            if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+String(i))==true{
+                value = defaults.object(forKey: String(questionNumber)+"_"+String(i)) as! Float
+                
+                text=String(Int(value))
+            }
+            var slider: CustomSliderLabels = CustomSliderLabels(text: text, frame: view.frame)
+            slider.delegate=self
+            slider.segments = "First "+String(i)
+           
             slider.maximumValue=10
             slider.minimumValue=0
+            slider.index_pos = i
             slider.minimumTrackTintColor = color.UIColorFromRGB(rgbValue: 0x6C6C6C)
             slider.maximumTrackTintColor = color.UIColorFromRGB(rgbValue: 0x6C6C6C)
-            slider.value=5
+            slider.value=value
             mainView.addSubview(slider)
             slider.translatesAutoresizingMaskIntoConstraints = false
             if i==0{
@@ -217,7 +310,6 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
                 slider.topAnchor.constraint(equalTo: sliders[i-1].bottomAnchor, constant: 60).isActive=true
 
             }
-            //slider.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: 26).isActive=true
             slider.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -26).isActive=true
             slider.widthAnchor.constraint(equalToConstant: 275).isActive=true
             slider.heightAnchor.constraint(equalToConstant: 31).isActive=true
@@ -228,7 +320,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
                 updateConstraints(number: 40)
                 height-=100
             }
-
+            
         }
         mainView.sizeToFit()
        
@@ -239,15 +331,17 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
     func generateRadioGroup(number:Int){
         var buttons:[RadioButton] = [RadioButton]()
         var height=0
+        var selectButton:Int = -1
+        if isKeyPresentInUserDefaults(key: String(questionNumber)+"_")==true{
+           
+            selectButton = defaults.object(forKey: String(questionNumber)+"_") as! Int
+        }
         for i in 0..<number{
             var button: RadioButton = RadioButton()
+            
             button.setTitle("Test", for: .normal)
             button.setTitleColor(color.UIColorFromRGB(rgbValue: 0x6C6C6C), for: .normal)
-            //button.titleLabel!.text = "Test"
-            //button.frame=CGRect(x: 0, y: 0, width: 150, height: 30)
-            //button.titleLabel?.font = .systemFont(ofSize: 14.0, weight: .bold)
             button.circleRadius=15
-           // mainView.addSubview(button)
             mainView.insertSubview(button,at:0)
             button.translatesAutoresizingMaskIntoConstraints = false
             if i==0{
@@ -257,21 +351,21 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
                 button.topAnchor.constraint(equalTo: buttons[i-1].bottomAnchor, constant: 60).isActive=true
 
             }
-            //slider.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: 26).isActive=true
-           // button.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -100).isActive=true
             button.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 40).isActive=true
             button.widthAnchor.constraint(equalToConstant: 150).isActive=true
             button.heightAnchor.constraint(equalToConstant: 30).isActive=true
             height+=31+75
-//            if (i==number-1){
-//                slider.bottomAnchor.constraint(equalTo: buttonNextQuestion.topAnchor, constant: 140).isActive=true
-//
-//            }
+
+            if selectButton==i{
+                button.isSelected = true
+            }
             buttons.append(button)
             if height>=580{
                 updateConstraints(number: 40)
                 height-=70
             }
+           
+            
 
         }
        radioButtonController = RadioButtonsController(buttons: buttons)
@@ -298,21 +392,11 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
         tableview.topAnchor.constraint(equalTo: viewQuestion.bottomAnchor, constant: 57).isActive=true
         tableview.widthAnchor.constraint(equalToConstant: 320).isActive=true
         tableview.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive=true
-        //tableview.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 0).isActive=true
-        //tableview.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -40).isActive=true
-        //tableview.heightAnchor.constraint(equalToConstant: CGFloat(data.count*80)).isActive=true
-       // tableview.bottomAnchor.constraint(equalTo: buttonNextQuestion.topAnchor, constant: -733).isActive=true
+
 
         var  height = data.count*80
         while height>=580{
             updateConstraints(number: 40)
-//            heightVV.constant+=100
-//            heightView.constant+=100
-//            heightSuperMain.constant+=100
-//            buttonNextBottonConstraint.constant-=100
-//            buttonPreBottomConstraint.constant-=100
-//            buttonNextQuestion.frame = CGRect(x: buttonNextQuestion.frame.origin.x+100, y: buttonNextQuestion.frame.origin.y, width: buttonNextQuestion.frame.width, height: buttonNextQuestion.frame.height)
-//            buttonReturn.frame = CGRect(x: buttonReturn.frame.origin.x+100, y: buttonReturn.frame.origin.y, width: buttonNextQuestion.frame.width, height: buttonReturn.frame.height)
             height-=60
         }
         tableview.sizeToFit()
@@ -330,6 +414,16 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell {
             cell.labelName.text = data[indexPath.row]
+            cell.delegate = self
+            cell.index_row = indexPath.row
+            if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+String(indexPath.row))==true{
+                if (defaults.integer(forKey: String(questionNumber)+"_"+String(indexPath.row)) != (-1)){
+
+                let button = cell.buttons[defaults.integer(forKey: String(questionNumber)+"_"+String(indexPath.row))]
+                    button.isSelected=true
+                }
+               
+            }
             return cell
         }
         
@@ -345,24 +439,25 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
     ///______________________________________________________________________
 
     func generateAffectionGrid(){
-        var affectionGrid: ViewAffectGrid = ViewAffectGrid()
-       affectionGrid.translatesAutoresizingMaskIntoConstraints = false
+        
+        var fin_loc: CGPoint = CGPoint(x: -1000, y: -1000)
+        if isKeyPresentInUserDefaults(key: String(questionNumber)+"_")==true{
+            let location = defaults.string(forKey: String(questionNumber)+"_")
+        
+             fin_loc = NSCoder.cgPoint(for: location!)
+            
+           
+        }
+        let affectionGrid: ViewAffectGrid = ViewAffectGrid(currLocation: fin_loc, frame: view.frame)
+        affectionGrid.delegate=self
+        affectionGrid.translatesAutoresizingMaskIntoConstraints = false
         mainView.addSubview(affectionGrid)
         affectionGrid.topAnchor.constraint(equalTo: viewQuestion.bottomAnchor, constant: 57).isActive=true
-       // affectionGrid.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 0).isActive=true
-        //affectionGrid.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -40).isActive=true
         affectionGrid.heightAnchor.constraint(equalToConstant: 360).isActive=true
         affectionGrid.widthAnchor.constraint(equalToConstant: 360).isActive=true
         affectionGrid.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive=true
-        //updateConstraints(number: 10)
-//        heightVV.constant+=10
-//        heightView.constant+=10
-//        heightSuperMain.constant+=10
-//        buttonNextBottonConstraint.constant-=10
-//
-//        buttonPreBottomConstraint.constant-=10
-//        buttonNextQuestion.frame = CGRect(x: buttonNextQuestion.frame.origin.x+10, y: buttonNextQuestion.frame.origin.y, width: buttonNextQuestion.frame.width, height: buttonNextQuestion.frame.height)
-//        buttonReturn.frame = CGRect(x: buttonReturn.frame.origin.x+10, y: buttonReturn.frame.origin.y, width: buttonNextQuestion.frame.width, height: buttonReturn.frame.height)
+       
+ 
     }
     /*
     // MARK: - Navigation

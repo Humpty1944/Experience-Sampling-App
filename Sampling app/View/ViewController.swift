@@ -39,7 +39,8 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-
+        var location:CGPoint = CGPoint(x:-1000, y:-1000)
+        print( NSCoder.string(for: location))
         setupCard()
     }
     

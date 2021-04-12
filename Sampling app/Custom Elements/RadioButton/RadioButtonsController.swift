@@ -15,7 +15,7 @@ import UIKit
     is called with a nil.
     
     */
-    @objc func didSelectButton(selectedButton: RadioButton?)
+    @objc func didSelectButton(selectedButton: RadioButton?, index: Int)
 }
 
 class RadioButtonsController : NSObject
@@ -88,7 +88,8 @@ class RadioButtonsController : NSObject
             sender.isSelected = true
             currentSelectedButton = sender
         }
-        delegate?.didSelectButton(selectedButton: currentSelectedButton)
+        let index = buttonsArray.firstIndex(where: { button in button.isSelected }) ?? -1
+        delegate?.didSelectButton(selectedButton: currentSelectedButton, index: index)
     }
     /**
         Get the currently selected button.

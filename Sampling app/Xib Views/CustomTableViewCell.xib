@@ -38,6 +38,9 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                <integer key="value" value="0"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DW-gr-tUM" customClass="CustomButton" customModule="Sampling_app" customModuleProvider="target">
@@ -61,6 +64,9 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                <integer key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
@@ -86,6 +92,9 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xma-QZ-Msp" customClass="CustomButton" customModule="Sampling_app" customModuleProvider="target">
@@ -110,6 +119,9 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
                     <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cD-b7-iJh" customClass="CustomButton" customModule="Sampling_app" customModuleProvider="target">
@@ -133,6 +145,9 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="index">
+                                <integer key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
@@ -162,11 +177,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="button1" destination="qh4-DF-4Dh" id="8kk-zf-bGP"/>
-                <outlet property="button2" destination="8DW-gr-tUM" id="lQ2-8W-yo9"/>
-                <outlet property="button3" destination="48z-rx-qwi" id="Qgq-UY-0bc"/>
-                <outlet property="button4" destination="Xma-QZ-Msp" id="Oy4-vI-ugq"/>
-                <outlet property="button5" destination="9cD-b7-iJh" id="6KZ-HR-fls"/>
+                <outlet property="button1" destination="qh4-DF-4Dh" id="5zu-oE-bYt"/>
+                <outlet property="button2" destination="8DW-gr-tUM" id="Y5O-Um-cPq"/>
+                <outlet property="button3" destination="48z-rx-qwi" id="iI7-Fu-qHf"/>
+                <outlet property="button4" destination="Xma-QZ-Msp" id="dKw-PX-QjX"/>
+                <outlet property="button5" destination="9cD-b7-iJh" id="GZ0-1r-T7x"/>
                 <outlet property="labelName" destination="o7D-bL-3lv" id="t3o-vu-D3O"/>
             </connections>
             <point key="canvasLocation" x="-65.217391304347828" y="52.901785714285715"/>

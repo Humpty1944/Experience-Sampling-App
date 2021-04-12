@@ -15,9 +15,9 @@ class QuestionControllerView: UIViewController{
     }
     @IBAction func nextQuestion(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(identifier: "Question3") as! Question3
+       // let viewController = storyboard.instantiateViewController(identifier: "Question3") as! Question3
         //navigationController?.setViewControllers([viewController], animated:true)
-        self.navigationController?.pushViewController(viewController, animated: false)
+        //self.navigationController?.pushViewController(viewController, animated: false)
     }
     @IBAction func openMenu(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
