@@ -28,6 +28,7 @@
 		21365A9B25E424C9009024BF /* color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A9A25E424C9009024BF /* color.swift */; };
 		21365A9E25E425F8009024BF /* Question4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A9D25E425F8009024BF /* Question4.swift */; };
 		213C38A525EE71D500781059 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213C38A425EE71D500781059 /* UserNotification.swift */; };
+		21749DB9262597700089A50A /* ViewInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21749DB8262597700089A50A /* ViewInstruction.swift */; };
 		2177573F25E3EC8000998C86 /* QuestionControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2177573E25E3EC8000998C86 /* QuestionControllerView.swift */; };
 		217DFD0825E9143400083823 /* Question6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DFD0725E9143400083823 /* Question6.swift */; };
 		2187AE3225E90A3B0093D859 /* icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2187AE3125E90A3B0093D859 /* icon3.png */; };
@@ -38,6 +39,8 @@
 		21933FE425DBFFD600CBF7B1 /* Sampling_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21933FE225DBFFD600CBF7B1 /* Sampling_app.xcdatamodeld */; };
 		21933FE625DBFFD700CBF7B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21933FE525DBFFD700CBF7B1 /* Assets.xcassets */; };
 		21933FE925DBFFD700CBF7B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21933FE725DBFFD700CBF7B1 /* LaunchScreen.storyboard */; };
+		21A511042625C0A600BC0286 /* SetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A511032625C0A600BC0286 /* SetStyle.swift */; };
+		21BE9C7C26246FE700484F7C /* CustomMultipleChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE9C7B26246FE700484F7C /* CustomMultipleChoice.swift */; };
 		21C0F6BD25E553690081E8C1 /* ViewAffectGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F6BC25E553690081E8C1 /* ViewAffectGrid.swift */; };
 		21C0F6D225E6BFB60081E8C1 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C0F6D125E6BFB60081E8C1 /* CustomTableViewCell.xib */; };
 		21C0F6D525E6BFC70081E8C1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F6D425E6BFC70081E8C1 /* CustomTableViewCell.swift */; };
@@ -71,6 +74,7 @@
 		21365A9A25E424C9009024BF /* color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = color.swift; sourceTree = "<group>"; };
 		21365A9D25E425F8009024BF /* Question4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question4.swift; sourceTree = "<group>"; };
 		213C38A425EE71D500781059 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
+		21749DB8262597700089A50A /* ViewInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInstruction.swift; sourceTree = "<group>"; };
 		2177573E25E3EC8000998C86 /* QuestionControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionControllerView.swift; sourceTree = "<group>"; };
 		217DFD0725E9143400083823 /* Question6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question6.swift; sourceTree = "<group>"; };
 		2187AE3125E90A3B0093D859 /* icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3.png; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		21933FE525DBFFD700CBF7B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21933FE825DBFFD700CBF7B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21933FEA25DBFFD700CBF7B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21A511032625C0A600BC0286 /* SetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStyle.swift; sourceTree = "<group>"; };
+		21BE9C7B26246FE700484F7C /* CustomMultipleChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMultipleChoice.swift; sourceTree = "<group>"; };
 		21C0F6BC25E553690081E8C1 /* ViewAffectGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAffectGrid.swift; sourceTree = "<group>"; };
 		21C0F6D125E6BFB60081E8C1 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		21C0F6D425E6BFC70081E8C1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -149,6 +155,8 @@
 				21365A9725E42034009024BF /* CustomSlider.swift */,
 				21D9FE5B25E6F0350024969B /* ContentSizedTableView.swift */,
 				213310CD25ED6CC10032B7E1 /* ButtonsController.swift */,
+				21BE9C7B26246FE700484F7C /* CustomMultipleChoice.swift */,
+				21749DB8262597700089A50A /* ViewInstruction.swift */,
 			);
 			path = "Custom Elements";
 			sourceTree = "<group>";
@@ -231,6 +239,7 @@
 			children = (
 				21365A9A25E424C9009024BF /* color.swift */,
 				212F037E26239D580096042F /* HelpFunctions.swift */,
+				21A511032625C0A600BC0286 /* SetStyle.swift */,
 			);
 			path = "Help Lib";
 			sourceTree = "<group>";
@@ -341,8 +350,10 @@
 				211D8D6925DD906A00FD4249 /* CardViewController.swift in Sources */,
 				21C0F6D825E6C0910081E8C1 /* Question5.swift in Sources */,
 				21365A8925E4084F009024BF /* CustomLabel.swift in Sources */,
+				21749DB9262597700089A50A /* ViewInstruction.swift in Sources */,
 				212F037C262398B10096042F /* ViewAllCorrect.swift in Sources */,
 				21365A8D25E410AB009024BF /* RadioButton.swift in Sources */,
+				21BE9C7C26246FE700484F7C /* CustomMultipleChoice.swift in Sources */,
 				21C0F6EE25E6EE140081E8C1 /* TableQuestion.swift in Sources */,
 				212F03852623A7390096042F /* ViewWelcome.swift in Sources */,
 				21C0F6D525E6BFC70081E8C1 /* CustomTableViewCell.swift in Sources */,
@@ -360,6 +371,7 @@
 				21365A9E25E425F8009024BF /* Question4.swift in Sources */,
 				213310CE25ED6CC10032B7E1 /* ButtonsController.swift in Sources */,
 				21933FDA25DBFFD600CBF7B1 /* AppDelegate.swift in Sources */,
+				21A511042625C0A600BC0286 /* SetStyle.swift in Sources */,
 				21365A9325E41270009024BF /* Question3.swift in Sources */,
 				21933FDC25DBFFD600CBF7B1 /* SceneDelegate.swift in Sources */,
 				217DFD0825E9143400083823 /* Question6.swift in Sources */,
@@ -514,6 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TWSHKX5C4B;
 				INFOPLIST_FILE = "Sampling app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -532,6 +545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TWSHKX5C4B;
 				INFOPLIST_FILE = "Sampling app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

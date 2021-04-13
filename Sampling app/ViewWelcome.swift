@@ -27,7 +27,7 @@ class ViewWelcome: UIViewController {
     
     
     func setUserDefualts(){
-        let count: [Int] = [3,3,8,1,3]
+        let count: [Int] = [3,3,8,1,3, 3]
         var j=0
         for i in 0..<5{
             for num in 0..<count[i]{

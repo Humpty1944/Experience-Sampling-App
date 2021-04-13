@@ -9,20 +9,22 @@ import Foundation
 import UIKit
 
 protocol AffectionGridDelegate: AnyObject {
-  func affectionGridLocation(_ affectionGrid: ViewAffectGrid, location: CGPoint)
+    func affectionGridLocation(_ affectionGrid: ViewAffectGrid, location: CGPoint)
 }
 @IBDesignable
 final class ViewAffectGrid: UIView {
-    internal init( currLocation: CGPoint, frame: CGRect){
+    internal init( currLocation: CGPoint, frame: CGRect, isLine: Bool){
         self.currLocation=currLocation
+        self.isLine = isLine
         super.init(frame: frame)
-    
+        
     }
     
     var isDrawCall:Bool?
     var currLocation:CGPoint=CGPoint(x: -1000, y: -1000)
     weak var delegate : AffectionGridDelegate?
-
+    var isLine: Bool = true
+    
     @IBInspectable
     var segments: [String] = ["Стресс", "Тревога", "Возбуждение", "Негативный", "Позитивный", "Депрессия", "Сонный", "Расслабленность"]
     var greenView:UIView = UIView()
@@ -81,12 +83,12 @@ final class ViewAffectGrid: UIView {
     }
     
     public func drawLocation(location: CGPoint, view:UIView){
-       // isDrawCall=true
+        // isDrawCall=true
         if let viewWithTag = self.viewWithTag(9999) {
             viewWithTag.removeFromSuperview()
         }
         var tapPlace: UIView
-       
+        
         let rectFrame: CGRect = CGRect(x:location.x-30, y:location.y-30, width:20, height:20)
         tapPlace=UIView(frame: rectFrame)
         tapPlace.tag=9999
@@ -123,14 +125,15 @@ final class ViewAffectGrid: UIView {
         greenView.layer.borderColor=UIColor.darkGray.cgColor
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTap(recognizer:)))
         greenView.addGestureRecognizer(tap)
-        
-        drawAllLines(basicView: greenView, width: rectWidth, height: rectHeight,isHorizontal:true )
-        drawAllLines(basicView: greenView, width: rectWidth, height: rectHeight,isHorizontal:false )
+        if isLine == true{
+            drawAllLines(basicView: greenView, width: rectWidth, height: rectHeight,isHorizontal:true )
+            drawAllLines(basicView: greenView, width: rectWidth, height: rectHeight,isHorizontal:false )
+        }
         addLabels(rectFrame: rectFrame)
         if currLocation.x != -1000 && currLocation.y != -1000{
-           
-                    drawLocation(location: currLocation, view: greenView)
-                }
+            
+            drawLocation(location: currLocation, view: greenView)
+        }
         self.addSubview(greenView)
         
     }
@@ -267,16 +270,16 @@ final class ViewAffectGrid: UIView {
         context.drawPath(using: .fill)
         context.restoreGState()
     }
-//    private func draw(text: String/*, in rect: CGRect*/, with color: UIColor, and font: UIFont) {
-//
-//        let attributes: [NSAttributedString.Key: Any] = [.font: font,
-//                                                         .foregroundColor: color,
-//                                                         .paragraphStyle: paragraphStyle]
-//        let string = NSAttributedString(string: text, attributes: attributes)
-//        let size = string.size()
-//        let yPos = self.bounds.width //+ size.height
-//        string.draw(at: CGPoint(x: 100, y: 100))
-//
-//    }
+    //    private func draw(text: String/*, in rect: CGRect*/, with color: UIColor, and font: UIFont) {
+    //
+    //        let attributes: [NSAttributedString.Key: Any] = [.font: font,
+    //                                                         .foregroundColor: color,
+    //                                                         .paragraphStyle: paragraphStyle]
+    //        let string = NSAttributedString(string: text, attributes: attributes)
+    //        let size = string.size()
+    //        let yPos = self.bounds.width //+ size.height
+    //        string.draw(at: CGPoint(x: 100, y: 100))
+    //
+    //    }
     
 }

@@ -29,6 +29,14 @@ class HelpFunction: NSObject{
         }
         print(dictInd)
     }
+    
+    static func removeFromDict(position:Int, index: Int){
+        let farray = dictInd[position]!.filter {$0 != index}
+        dictInd[position] = farray
+        if dictInd[position]!.count <= 0{
+            questDict[position]!=0
+        }
+    }
     static func setPos(val:Int){
         pos=0
     }

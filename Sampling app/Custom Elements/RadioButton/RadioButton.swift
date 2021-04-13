@@ -71,16 +71,16 @@ class RadioButton: UIButton {
     
     fileprivate func initialize() {
         circleLayer.frame = bounds
-        circleLayer.lineWidth = 2
+        circleLayer.lineWidth = 1
         circleLayer.fillColor = UIColor.clear.cgColor
-        circleLayer.strokeColor = strokeColor.cgColor
+        circleLayer.strokeColor = color.UIColorFromRGB(rgbValue: 0x4198FF).cgColor//strokeColor.cgColor color.UIColorFromRGB(rgbValue: 0x6C6C6C)
         layer.addSublayer(circleLayer)
         fillCircleLayer.frame = bounds
         fillCircleLayer.lineWidth = 2
         fillCircleLayer.fillColor = UIColor.clear.cgColor
         fillCircleLayer.strokeColor = UIColor.clear.cgColor
         layer.addSublayer(fillCircleLayer)
-        self.titleEdgeInsets = UIEdgeInsets(top: 0, left: (4*circleRadius + 4*circleLayer.lineWidth), bottom: 0, right: 0)
+        self.titleEdgeInsets = UIEdgeInsets(top: 0, left: (2*circleRadius + 4*circleLayer.lineWidth), bottom: 0, right: 0)
         self.toggleButon()
     }
     /**
@@ -88,8 +88,8 @@ class RadioButton: UIButton {
      */
     func toggleButon() {
         if self.isSelected {
-            fillCircleLayer.fillColor = circleColor.cgColor
-            circleLayer.strokeColor = circleColor.cgColor
+            fillCircleLayer.fillColor = color.UIColorFromRGB(rgbValue: 0x4198FF).cgColor//circleColor.cgColor
+            circleLayer.strokeColor = color.UIColorFromRGB(rgbValue: 0x4198FF).cgColor//circleColor.cgColor
         } else {
             fillCircleLayer.fillColor = UIColor.clear.cgColor
             circleLayer.strokeColor = strokeColor.cgColor
