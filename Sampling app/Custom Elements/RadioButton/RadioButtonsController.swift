@@ -67,12 +67,12 @@ class RadioButtonsController : NSObject
         
         - parameter buttonArray: Array of buttons
     */
-    func setButtonsArray(_ aButtonsArray: [RadioButton]) {
-        for aButton in aButtonsArray {
-            aButton.addTarget(self, action: #selector(RadioButtonsController.pressed(_:)), for: UIControl.Event.touchUpInside)
-        }
-        buttonsArray = aButtonsArray
-    }
+//    func setButtonsArray(_ aButtonsArray: [RadioButton]) {
+//        for aButton in aButtonsArray {
+//            aButton.addTarget(self, action: #selector(RadioButtonsController.pressed(_:)), for: UIControl.Event.touchUpInside)
+//        }
+//        buttonsArray = aButtonsArray
+//    }
 
     @objc func pressed(_ sender: RadioButton) {
         var currentSelectedButton: RadioButton? = nil
@@ -96,9 +96,9 @@ class RadioButtonsController : NSObject
     
         - returns: Currenlty selected button.
     */
-    func selectedButton() -> RadioButton? {
-        guard let index = buttonsArray.firstIndex(where: { button in button.isSelected }) else { return nil }
-        
-        return buttonsArray[index]
-    }
+//    func selectedButton() -> RadioButton? {
+//        guard let index = buttonsArray.firstIndex(where: { button in button.isSelected }) else { return nil }
+//
+//        return buttonsArray[index]
+//    }
 }

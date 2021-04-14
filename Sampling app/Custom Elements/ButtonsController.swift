@@ -15,7 +15,7 @@ import UIKit
     is called with a nil.
     
     */
-    @objc func didSelectButton(selectedButton: CustomButton?)
+    @objc func didSelectButton(selectedButton: CustomButton?, index: Int)
 }
 
 class ButtonsController : NSObject
@@ -31,6 +31,14 @@ class ButtonsController : NSObject
         - parameter buttons: Buttons that should behave as Radio Buttons
     */
     init(buttons: CustomButton...) {
+        super.init()
+        for aButton in buttons {
+            aButton.addTarget(self, action: #selector(ButtonsController.pressed(_:)), for: UIControl.Event.touchUpInside)
+        }
+        self.buttonsArray = buttons
+    }
+    
+    init(buttons: [CustomButton]) {
         super.init()
         for aButton in buttons {
             aButton.addTarget(self, action: #selector(ButtonsController.pressed(_:)), for: UIControl.Event.touchUpInside)
@@ -67,23 +75,23 @@ class ButtonsController : NSObject
         
         - parameter buttonArray: Array of buttons
     */
-    func setButtonsArray(_ aButtonsArray: [CustomButton]) {
-      
-        for aButton in aButtonsArray {
-            aButton.addTarget(self, action: #selector(ButtonsController.pressed(_:)), for: UIControl.Event.touchUpInside)
-
-          
-        }
-        buttonsArray = aButtonsArray
-    }
+//    func setButtonsArray(_ aButtonsArray: [CustomButton]) {
+//      
+//        for aButton in aButtonsArray {
+//            aButton.addTarget(self, action: #selector(ButtonsController.pressed(_:)), for: UIControl.Event.touchUpInside)
+//
+//
+//        }
+//        buttonsArray = aButtonsArray
+//    }
 
     @objc func pressed(_ sender: CustomButton) {
         var currentSelectedButton: CustomButton? = nil
         if(sender.isSelected) {
-            if shouldLetDeSelect {
-                sender.isSelected = false
-                currentSelectedButton = nil
-            }
+//            if shouldLetDeSelect {
+//                sender.isSelected = false
+//                currentSelectedButton = nil
+//            }
         } else {
             for aButton in buttonsArray {
                 aButton.isSelected = false
@@ -91,16 +99,16 @@ class ButtonsController : NSObject
             sender.isSelected = true
             currentSelectedButton = sender
         }
-        delegate?.didSelectButton(selectedButton: currentSelectedButton)
+        delegate?.didSelectButton(selectedButton: currentSelectedButton, index:sender.index)
     }
     /**
         Get the currently selected button.
     
         - returns: Currenlty selected button.
     */
-    func selectedButton() -> CustomButton? {
-        guard let index = buttonsArray.firstIndex(where: { button in button.isSelected }) else { return nil }
-
-        return buttonsArray[index]
-    }
+//    func selectedButton() -> CustomButton? {
+//        guard let index = buttonsArray.firstIndex(where: { button in button.isSelected }) else { return nil }
+//
+//        return buttonsArray[index]
+//    }
 }

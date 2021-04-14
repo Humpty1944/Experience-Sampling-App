@@ -1,5 +1,5 @@
 //
-//  ViewAffectGrid.swift
+//  CustomViewAffectGrid.swift
 //  help
 //
 //  Created by Назарова on 23.02.2021.
@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-protocol AffectionGridDelegate: AnyObject {
-    func affectionGridLocation(_ affectionGrid: ViewAffectGrid, location: CGPoint)
+protocol AffectGridDelegate: AnyObject {
+    func affectGridLocation(_ affectGrid: CustomViewAffectGrid, location: CGPoint)
 }
 @IBDesignable
-final class ViewAffectGrid: UIView {
+final class CustomViewAffectGrid: UIView {
     internal init( currLocation: CGPoint, frame: CGRect, isLine: Bool){
         self.currLocation=currLocation
         self.isLine = isLine
@@ -20,25 +20,26 @@ final class ViewAffectGrid: UIView {
         
     }
     
-    var isDrawCall:Bool?
+   // var isDrawCall:Bool?
     var currLocation:CGPoint=CGPoint(x: -1000, y: -1000)
-    weak var delegate : AffectionGridDelegate?
+    weak var delegate : AffectGridDelegate?
+    @IBInspectable
     var isLine: Bool = true
     
     @IBInspectable
     var segments: [String] = ["Стресс", "Тревога", "Возбуждение", "Негативный", "Позитивный", "Депрессия", "Сонный", "Расслабленность"]
-    var greenView:UIView = UIView()
+    var mainAffectView:UIView = UIView()
     
     // MARK: - Private properties
     
-    private lazy var paragraphStyle: NSParagraphStyle = {
-        let paragraph = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
-        paragraph.alignment = .center
-        return paragraph.copy() as! NSParagraphStyle
-    }()
-    private var segmentSize: CGFloat {
-        return frame.width / CGFloat(segments.count)
-    }
+//    private lazy var paragraphStyle: NSParagraphStyle = {
+//        let paragraph = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+//        paragraph.alignment = .center
+//        return paragraph.copy() as! NSParagraphStyle
+//    }()
+//    private var segmentSize: CGFloat {
+//        return frame.width / CGFloat(segments.count)
+//    }
     
     // MARK: - Initializers
     
@@ -78,7 +79,7 @@ final class ViewAffectGrid: UIView {
         tapPlace.layer.cornerRadius=tapPlace.bounds.width/2
         self.addSubview(tapPlace)
         currLocation = location
-        self.delegate?.affectionGridLocation(self, location: currLocation)
+        self.delegate?.affectGridLocation(self, location: currLocation)
         
     }
     
@@ -118,23 +119,23 @@ final class ViewAffectGrid: UIView {
         let rectHeight = Int(screenHeight) - 40
         
         let rectFrame: CGRect = CGRect(x:CGFloat(xPos), y:CGFloat(yPos), width:CGFloat(rectWidth), height:CGFloat(rectHeight))
-        greenView = UIView(frame: rectFrame)
-        greenView.backgroundColor = UIColor.white
-        greenView.layer.cornerRadius=24
-        greenView.layer.borderWidth=1
-        greenView.layer.borderColor=UIColor.darkGray.cgColor
+        mainAffectView = UIView(frame: rectFrame)
+        mainAffectView.backgroundColor = UIColor.white
+        mainAffectView.layer.cornerRadius=24
+        mainAffectView.layer.borderWidth=1
+        mainAffectView.layer.borderColor=UIColor.darkGray.cgColor
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTap(recognizer:)))
-        greenView.addGestureRecognizer(tap)
+        mainAffectView.addGestureRecognizer(tap)
         if isLine == true{
-            drawAllLines(basicView: greenView, width: rectWidth, height: rectHeight,isHorizontal:true )
-            drawAllLines(basicView: greenView, width: rectWidth, height: rectHeight,isHorizontal:false )
+            drawAllLines(basicView: mainAffectView, width: rectWidth, height: rectHeight,isHorizontal:true )
+            drawAllLines(basicView: mainAffectView, width: rectWidth, height: rectHeight,isHorizontal:false )
         }
         addLabels(rectFrame: rectFrame)
         if currLocation.x != -1000 && currLocation.y != -1000{
             
-            drawLocation(location: currLocation, view: greenView)
+            drawLocation(location: currLocation, view: mainAffectView)
         }
-        self.addSubview(greenView)
+        self.addSubview(mainAffectView)
         
     }
     

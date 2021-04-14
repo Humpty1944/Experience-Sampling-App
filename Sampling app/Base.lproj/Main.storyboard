@@ -548,22 +548,23 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNE-Ej-mEL" customClass="ViewInstruction" customModule="Sampling_app" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNE-Ej-mEL" customClass="CustomViewInstruction" customModule="Sampling_app" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="249.33333333333334" width="394" height="2"/>
                                                 <color key="backgroundColor" red="0.56939858200000004" green="0.75262844559999997" blue="0.98532575369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="QNO-ec-twt"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beE-bz-ZFb">
-                                                <rect key="frame" x="108" y="40" width="47" height="25"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beE-bz-ZFb">
+                                                <rect key="frame" x="108" y="28" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" image="questionmark.circle" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="13"/>
@@ -583,7 +584,6 @@
                                             <constraint firstItem="XNE-Ej-mEL" firstAttribute="top" secondItem="Qv6-tE-8BK" secondAttribute="bottom" constant="15" id="0om-K5-Uo5"/>
                                             <constraint firstItem="XNE-Ej-mEL" firstAttribute="leading" secondItem="yAz-H1-B0r" secondAttribute="leading" constant="10" id="4Iw-0r-Gc9"/>
                                             <constraint firstItem="Qv6-tE-8BK" firstAttribute="leading" secondItem="yAz-H1-B0r" secondAttribute="leading" constant="40" id="8eA-hg-nef"/>
-                                            <constraint firstItem="beE-bz-ZFb" firstAttribute="top" secondItem="yAz-H1-B0r" secondAttribute="top" constant="40" id="9Qy-zO-AMP"/>
                                             <constraint firstAttribute="trailing" secondItem="Qv6-tE-8BK" secondAttribute="trailing" constant="40" id="E1H-xq-MIq"/>
                                             <constraint firstItem="NTM-nH-qKY" firstAttribute="leading" secondItem="yAz-H1-B0r" secondAttribute="leading" constant="46" id="XBh-5b-jHs"/>
                                             <constraint firstAttribute="height" constant="800" id="ic3-DQ-Cma"/>
@@ -593,7 +593,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szB-KV-zqt">
-                                        <rect key="frame" x="38.000000000000007" y="40" width="68.666666666666686" height="24"/>
+                                        <rect key="frame" x="37.666666666666657" y="40" width="69" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="nkO-MK-1j2"/>
                                         </constraints>
@@ -605,10 +605,9 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yAz-H1-B0r" secondAttribute="trailing" id="00m-1d-lE0"/>
                                     <constraint firstItem="yAz-H1-B0r" firstAttribute="width" secondItem="wVb-AC-3Ja" secondAttribute="width" id="9qL-4H-GCA"/>
-                                    <constraint firstItem="beE-bz-ZFb" firstAttribute="leading" secondItem="szB-KV-zqt" secondAttribute="trailing" constant="10" id="BpX-hE-2Co"/>
                                     <constraint firstItem="yAz-H1-B0r" firstAttribute="top" secondItem="wVb-AC-3Ja" secondAttribute="top" id="Sej-9y-Qrm"/>
+                                    <constraint firstItem="szB-KV-zqt" firstAttribute="top" secondItem="yAz-H1-B0r" secondAttribute="top" constant="40" id="Wcg-tU-gBT"/>
                                     <constraint firstItem="yAz-H1-B0r" firstAttribute="height" secondItem="wVb-AC-3Ja" secondAttribute="height" priority="250" id="anv-OQ-vfF"/>
-                                    <constraint firstItem="szB-KV-zqt" firstAttribute="top" secondItem="9EH-IT-G8R" secondAttribute="top" constant="40" id="mcI-Ze-Yr4"/>
                                     <constraint firstItem="yAz-H1-B0r" firstAttribute="leading" secondItem="wVb-AC-3Ja" secondAttribute="leading" id="rr6-3j-mEk"/>
                                     <constraint firstItem="yAz-H1-B0r" firstAttribute="leading" secondItem="szB-KV-zqt" secondAttribute="trailing" constant="-106.66666666666669" id="wZ2-io-dHg"/>
                                     <constraint firstAttribute="bottom" secondItem="yAz-H1-B0r" secondAttribute="bottom" id="xVb-qg-hcM"/>
@@ -630,16 +629,12 @@
                     <size key="freeformSize" width="414" height="800"/>
                     <connections>
                         <outlet property="constrainInstructionHeight" destination="QNO-ec-twt" id="Ar7-6Y-50T"/>
-                        <outlet property="heightSuperMain" destination="xVb-qg-hcM" id="YO5-i8-38C"/>
                         <outlet property="heightVV" destination="ic3-DQ-Cma" id="EuF-Kk-1v4"/>
-                        <outlet property="heightView" destination="anv-OQ-vfF" id="pI2-kk-NDg"/>
-                        <outlet property="labelHint" destination="Qv6-tE-8BK" id="jYj-6w-GIB"/>
                         <outlet property="labelQuestionText" destination="cvN-CY-VU1" id="SsF-vf-TXA"/>
                         <outlet property="lableQuestionNumber" destination="szB-KV-zqt" id="LG7-7Q-uWj"/>
                         <outlet property="mainView" destination="yAz-H1-B0r" id="0vx-4L-8hL"/>
                         <outlet property="scrollView" destination="wVb-AC-3Ja" id="ZYW-ma-6ep"/>
                         <outlet property="viewInstruction" destination="XNE-Ej-mEL" id="v7t-H9-mCY"/>
-                        <outlet property="viewQuestion" destination="NTM-nH-qKY" id="5yn-gO-CP3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1a2-1O-vkY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -655,7 +650,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Спасибо за заполнение!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIt-LX-YC7">
-                                <rect key="frame" x="68.333333333333343" y="293" width="277.33333333333326" height="30"/>
+                                <rect key="frame" x="68.666666666666686" y="293" width="277" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -692,7 +687,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не ответили на все вопросы!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMg-cc-PXQ">
-                                <rect key="frame" x="33.333333333333343" y="251" width="347.33333333333326" height="29"/>
+                                <rect key="frame" x="33.666666666666657" y="251" width="347" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -768,18 +763,45 @@
                                     <action selector="buttonPress:" destination="BOh-jr-emn" eventType="touchUpInside" id="lR4-L1-faY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJn-qI-xmD" customClass="CustomButton" customModule="Sampling_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="40" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="7aW-bY-cqa"/>
+                                    <constraint firstAttribute="height" constant="40" id="MQz-pB-6uj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" image="arrow.turn.up.left" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.29993060230000002" green="0.61444717650000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backToMain:" destination="BOh-jr-emn" eventType="touchUpInside" id="wNZ-Se-tOU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ntx-vG-gfN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="R4K-6D-EOw" firstAttribute="centerX" secondItem="ntx-vG-gfN" secondAttribute="centerX" id="6Tb-L4-ExO"/>
                             <constraint firstItem="R4K-6D-EOw" firstAttribute="top" secondItem="ntx-vG-gfN" secondAttribute="top" constant="269" id="Cqa-wd-4Hh"/>
+                            <constraint firstItem="bJn-qI-xmD" firstAttribute="top" secondItem="ntx-vG-gfN" secondAttribute="top" constant="40" id="Mmy-QT-DRY"/>
                             <constraint firstItem="Okx-Oa-ZuQ" firstAttribute="centerX" secondItem="ntx-vG-gfN" secondAttribute="centerX" id="bks-Gf-qRV"/>
                             <constraint firstItem="Okx-Oa-ZuQ" firstAttribute="top" secondItem="R4K-6D-EOw" secondAttribute="bottom" constant="65" id="opJ-1S-7qZ"/>
+                            <constraint firstItem="bJn-qI-xmD" firstAttribute="leading" secondItem="ntx-vG-gfN" secondAttribute="leading" constant="20" id="wKI-cK-fMA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="buttonBegin" destination="Okx-Oa-ZuQ" id="LBA-bB-v9M"/>
+                        <outlet property="labelWelcome" destination="R4K-6D-EOw" id="mNH-XT-Rmx"/>
+                        <outlet property="returnButton" destination="bJn-qI-xmD" id="hXm-VH-YDV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ArN-t5-qQR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1518,7 +1540,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vC5-fk-dns" customClass="ViewAffectGrid" customModule="Sampling_app" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vC5-fk-dns" customClass="CustomViewAffectGrid" customModule="Sampling_app" customModuleProvider="target">
                                 <rect key="frame" x="30" y="277" width="364" height="357"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -1592,11 +1614,11 @@
         <designable name="UxV-r9-uzo">
             <size key="intrinsicContentSize" width="66" height="29"/>
         </designable>
-        <designable name="VID-FM-4b0">
-            <size key="intrinsicContentSize" width="46" height="30"/>
-        </designable>
         <designable name="VWd-f0-Ksv">
             <size key="intrinsicContentSize" width="90" height="30"/>
+        </designable>
+        <designable name="bJn-qI-xmD">
+            <size key="intrinsicContentSize" width="19.666666666666668" height="29"/>
         </designable>
         <designable name="eFg-2R-IJm">
             <size key="intrinsicContentSize" width="19.666666666666668" height="22"/>

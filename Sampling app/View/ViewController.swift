@@ -26,7 +26,7 @@ class ViewController: UIViewController{
     var visualEffectView:UIVisualEffectView!
     
     let cardHeight:CGFloat = 600
-    let cardHandleAreaHeight:CGFloat = 0
+//    let cardHandleAreaHeight:CGFloat = 0
     
     var cardVisible = false
     var nextState:CardState {
@@ -39,8 +39,6 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        var location:CGPoint = CGPoint(x:-1000, y:-1000)
-        print( NSCoder.string(for: location))
         setupCard()
     }
     
@@ -57,7 +55,7 @@ class ViewController: UIViewController{
         visualEffectView.frame = self.view.frame
         
         cardViewController = CardViewController(nibName:"CardViewController", bundle:nil)
-        cardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaHeight, width: self.view.bounds.width, height: cardHeight)
+        cardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height /*- cardHandleAreaHeight*/, width: self.view.bounds.width, height: cardHeight)
         cardViewController.view.clipsToBounds = true
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleCardTap(recognzier:)))
@@ -114,7 +112,7 @@ class ViewController: UIViewController{
                 case .expanded:
                     self.cardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight
                 case .collapsed:
-                    self.cardViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaHeight
+                    self.cardViewController.view.frame.origin.y = self.view.frame.height /*- self.cardHandleAreaHeight*/
                 }
             }
             

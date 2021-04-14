@@ -88,6 +88,25 @@ class CustomSliderLabels:UISlider{
 
 @IBDesignable
 class CustomSlider: UISlider {
+    internal init(value_my: Float, frame:CGRect, min:Float, max: Float) {
+        super.init(frame: frame)
+        self.minimumValue=min
+        self.maximumValue=max
+        self.value = value_my
+        print(self.value,  self.maximumValue)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+       // fatalError("init(coder:) has not been implemented")
+    }
+    
+//    required init?(coder: NSCoder) {
+//        super.init(coder: NSCoder)
+//        //fatalError("init(coder:) has not been implemented")
+//    }
+    
     
     var index_pos:Int = -1
     weak var delegate : CustomSliderDelegate?

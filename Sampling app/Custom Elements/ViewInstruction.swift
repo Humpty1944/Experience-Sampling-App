@@ -1,5 +1,5 @@
 //
-//  ViewInstruction.swift
+//  CustomViewInstruction.swift
 //  Sampling app
 //
 //  Created by Назарова on 13.04.2021.
@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class ViewInstruction: UIView {
+class CustomViewInstruction: UIView {
   
     
 

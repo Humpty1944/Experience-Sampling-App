@@ -21,22 +21,22 @@ class RadioButton: UIButton {
     /**
      Color of the radio button circle. Default value is UIColor red.
      */
-    @IBInspectable var circleColor: UIColor = UIColor.gray {
-        didSet {
-            circleLayer.strokeColor = strokeColor.cgColor
-            self.toggleButon()
-        }
-    }
+//    @IBInspectable var circleColor: UIColor = UIColor.gray {
+//        didSet {
+//            circleLayer.strokeColor = strokeColor.cgColor
+//            self.toggleButon()
+//        }
+//    }
     
     /**
      Color of the radio button stroke circle. Default value is UIColor red.
      */
-    @IBInspectable var strokeColor: UIColor = UIColor.gray {
-        didSet {
-            circleLayer.strokeColor = strokeColor.cgColor
-            self.toggleButon()
-        }
-    }
+//    @IBInspectable var strokeColor: UIColor = UIColor.gray {
+//        didSet {
+//            circleLayer.strokeColor = strokeColor.cgColor
+//            self.toggleButon()
+//        }
+//    }
     
     /**
      Radius of RadioButton circle.
@@ -92,7 +92,7 @@ class RadioButton: UIButton {
             circleLayer.strokeColor = color.UIColorFromRGB(rgbValue: 0x4198FF).cgColor//circleColor.cgColor
         } else {
             fillCircleLayer.fillColor = UIColor.clear.cgColor
-            circleLayer.strokeColor = strokeColor.cgColor
+            circleLayer.strokeColor = UIColor.gray.cgColor//strokeColor.cgColor
         }
     }
     

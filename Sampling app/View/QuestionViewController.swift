@@ -7,16 +7,16 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController, RadioButtonControllerDelegate, UITableViewDataSource, UITableViewDelegate, CustomTableViewCellDelegate, AffectionGridDelegate, CustomSliderDelegate, CustomSliderLabelsDelegate, MultipleChoiceDelegate {
-    func multipleChoice(_ multipleChoice: CustomMultipleChoice, index: Int) {
-        defaults.setValue(multipleChoice.isSelected, forKey: String(questionNumber)+"_"+String(index))
-        if multipleChoice.isSelected{
-            HelpFunction.addDict(position: questionNumber, index:index)
-        }
-        else{
-            HelpFunction.removeFromDict(position: questionNumber, index:index)
-        }
-    }
+class QuestionViewController: UIViewController, RadioButtonControllerDelegate, AffectGridDelegate, CustomSliderDelegate, CustomSliderLabelsDelegate /*MultipleChoiceDelegate*/ {
+//    func multipleChoice(_ multipleChoice: CustomMultipleChoice, index: Int) {
+//        defaults.setValue(multipleChoice.isSelected, forKey: String(questionNumber)+"_"+String(index))
+//        if multipleChoice.isSelected{
+//            HelpFunction.addDict(position: questionNumber, index:index)
+//        }
+//        else{
+//            HelpFunction.removeFromDict(position: questionNumber, index:index)
+//        }
+//    }
     
     
     
@@ -32,16 +32,16 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
         HelpFunction.addDict(position: questionNumber, index:index)
     }
     
-    func affectionGridLocation(_ affectionGrid: ViewAffectGrid, location: CGPoint) {
+    func affectGridLocation(_ affectGrid: CustomViewAffectGrid, location: CGPoint) {
         defaults.setValue(NSCoder.string(for: location), forKey: String(questionNumber)+"_")
         HelpFunction.addDict(position: questionNumber, index:-1)
     }
     
-    func customTableViewCell(_ customTableViewCell: CustomTableViewCell, indexButton: Int) {
-        
-        defaults.setValue(indexButton, forKey: String(questionNumber)+"_"+String(customTableViewCell.index_row))
-        HelpFunction.addDict(position: questionNumber, index:customTableViewCell.index_row)
-    }
+//    func customTableViewCell(_ customTableViewCell: CustomTableViewCell, indexButton: Int) {
+//
+//        defaults.setValue(indexButton, forKey: String(questionNumber)+"_"+String(customTableViewCell.index_row))
+//        HelpFunction.addDict(position: questionNumber, index:customTableViewCell.index_row)
+//    }
     
     func didSelectButton(selectedButton: RadioButton?, index:Int) {
         if index != -1{
@@ -52,7 +52,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
     
     let data = ["One","Two","Three","Four","Five","Six","Seven","Eight"]
     var questionNumber:Int=1
-    var isFirstQuestion:Bool=true
+//    var isFirstQuestion:Bool=true
     let defaults = UserDefaults.standard
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var lableQuestionNumber: UILabel!
@@ -60,28 +60,29 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
    // @IBOutlet weak var buttonReturn: CustomButton!
   //  @IBOutlet weak var buttonNextQuestion: CustomButtonBase!
     
-    @IBOutlet weak var heightView: NSLayoutConstraint!
-    @IBOutlet weak var viewQuestion: CustomView!
+    //@IBOutlet weak var heightView: NSLayoutConstraint!
+    //@IBOutlet weak var viewQuestion: CustomView!
     
     @IBOutlet weak var scrollView: UIScrollView!
     ///_______________________________________________________________
   //  @IBOutlet weak var buttonNextBottonConstraint: NSLayoutConstraint!
    // @IBOutlet weak var sliderSuperView: NSLayoutConstraint!
-    @IBOutlet weak var heightSuperMain: NSLayoutConstraint!
+    //@IBOutlet weak var heightSuperMain: NSLayoutConstraint!
     @IBOutlet weak var heightVV: NSLayoutConstraint!
     
    // @IBOutlet weak var buttonPreBottomConstraint: NSLayoutConstraint!
     ///______________________________________________________________
     
-    @IBOutlet weak var labelHint: UILabel!
-    @IBOutlet weak var viewInstruction: ViewInstruction!
+    //@IBOutlet weak var labelHint: UILabel!
+    @IBOutlet weak var viewInstruction: CustomViewInstruction!
     
     @IBOutlet weak var constrainInstructionHeight: NSLayoutConstraint!
     
-    var contrainContinueTop: NSLayoutConstraint = NSLayoutConstraint()
+    //var contrainContinueTop: NSLayoutConstraint = NSLayoutConstraint()
     var originHeight: CGFloat = 0
     ///______________________________________________________________
     var radioButtonController: RadioButtonsController?
+    //var buttonController: ButtonsController?
    
     
     
@@ -138,14 +139,14 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
     }
     
     
-    func removeReturnButton(){
+    func buttonForPages(){
         // isFirstQuestion=true
 //        if questionNumber == 1{
 //            // buttonReturn.removeFromSuperview()
 //        }
         //buttonNextQuestion.removeFromSuperview()
         var buttonNext: UIButton = UIButton()
-        if questionNumber == 5{
+        if questionNumber == 5 || (HelpFunction.isReturn == true && HelpFunction.questions.last == questionNumber){
             buttonNext.setTitle("Закончить", for: .normal)
         }
         else{
@@ -164,7 +165,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
         buttonNext.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -10).isActive=true
         buttonNext.heightAnchor.constraint(equalToConstant: 50).isActive=true
         buttonNext.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        if questionNumber != 1 || (HelpFunction.isReturn == true && HelpFunction.questions.last == questionNumber){
+        if questionNumber != 1 && !(HelpFunction.isReturn == true && HelpFunction.questions.last == questionNumber){
             var buttonReturn: UIButton = UIButton()
             // buttonReturn.setTitle("Продолжить", for: .normal)
             let image = UIImage(systemName: "arrow.turn.up.left")
@@ -207,7 +208,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
 
     
     @objc func buttonAction(sender: UIButton!) {
-        
+       print(self.questionNumber+1 == 6 || HelpFunction.questions.count == HelpFunction.pos || (HelpFunction.isReturn == true && HelpFunction.questions.isEmpty == true))
         if self.questionNumber+1 == 6 || HelpFunction.questions.count == HelpFunction.pos || (HelpFunction.isReturn == true && HelpFunction.questions.isEmpty == true){
             if HelpFunction.checkReceiveAllAnswers()==true{
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -249,10 +250,10 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
             generateSimpleSlider(number: 3)
         }
         else if questionNumber==3{
-            generateTableView()
+            generateTableView(number: 8)
         }
         else if questionNumber==4 {
-            generateAffectionGrid()
+            generateAffectGrid()
         }
         else if questionNumber==5{
             generateSliders(number: 3)
@@ -260,7 +261,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
 //        else{
 //            generateMyltipleChoiceQuestion(number: 3)
 //        }
-        removeReturnButton()
+        buttonForPages()
         
     }
     
@@ -289,21 +290,24 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
         var value:Float = 5
         
         for i in 0..<number{
-            
+            value = 5
             if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+String(i))==true{
                 value = defaults.object(forKey: String(questionNumber)+"_"+String(i)) as! Float
                 
                 
             }
-            var slider: CustomSlider = CustomSlider()
+          
+            var slider: CustomSlider = CustomSlider(value_my: value, frame: self.view.frame, min: 0, max: 10)
             slider.delegate=self
             
-            slider.maximumValue=10
-            slider.minimumValue=0
+            //slider.maximumValue=10
+            //slider.minimumValue=0
             slider.index_pos = i
             slider.minimumTrackTintColor = color.UIColorFromRGB(rgbValue: 0x6C6C6C)
             slider.maximumTrackTintColor = color.UIColorFromRGB(rgbValue: 0x6C6C6C)
-            slider.value=value
+//            if value != 5 {
+//            slider.value=value
+//            }
             mainView.addSubview(slider)
             slider.translatesAutoresizingMaskIntoConstraints = false
             if i==0{
@@ -422,76 +426,137 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
         }
         radioButtonController = RadioButtonsController(buttons: buttons)
         radioButtonController!.delegate = self
-        radioButtonController!.shouldLetDeSelect = true
+       // radioButtonController!.shouldLetDeSelect = true
     }
     
     ///______________________________________________________________________
-    func generateTableView(){
-        var tableview: ContentSizedTableView = ContentSizedTableView()
-        tableview.translatesAutoresizingMaskIntoConstraints = false
-        tableview.dataSource = self
-        tableview.delegate = self
-        
-        tableview.frame=CGRect(x: 25, y: 277, width: 320, height: data.count*100)
-        tableview.showsHorizontalScrollIndicator=false
-        tableview.showsVerticalScrollIndicator=false
-        tableview.bounces=false
-        tableview.isScrollEnabled=false
-        tableview.separatorStyle = .none
-        tableview.allowsSelection=false
-        self.registerTableViewCells(tableview: tableview)
-        mainView.addSubview(tableview)
-       // tableview.topAnchor.constraint(equalTo: viewQuestion.bottomAnchor, constant: 57).isActive=true
-        tableview.topAnchor.constraint(equalTo: viewInstruction.bottomAnchor, constant: 57).isActive=true
-        tableview.widthAnchor.constraint(equalToConstant: 320).isActive=true
-        tableview.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive=true
-        
-        
-        var  height = data.count*80
-        while height>=580{
-            updateConstraints(number: 40)
-            height-=60
-        }
-        tableview.sizeToFit()
-        
-        
-    }
-    
-    
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-        return self.data.count
-    }
-    
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell {
-            cell.labelName.text = data[indexPath.row]
-            cell.delegate = self
-            cell.index_row = indexPath.row
-            if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+String(indexPath.row))==true{
-                if (defaults.integer(forKey: String(questionNumber)+"_"+String(indexPath.row)) != (-1)){
-                    
-                    let button = cell.buttons[defaults.integer(forKey: String(questionNumber)+"_"+String(indexPath.row))]
-                    button.isSelected=true
-                }
-                
+    func generateTableView(number: Int){
+        var height=0
+        var tables:[CustomTable] = [CustomTable]()
+        var val:Int = -1
+        for i in 0..<number{
+            val = -1
+            if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+String(i))==true{
+                val = defaults.object(forKey: String(questionNumber)+"_"+String(i)) as! Int
             }
-            return cell
+            var table = CustomTable(numbers: 5, index: i, question: questionNumber, val:val, frame: CGRect(x: 0, y: 0, width: self.mainView.bounds.width-10, height: 50))
+            //table.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width-10, height: 30)
+            table.clipsToBounds = true
+            print(val, "dd")
+            if val != -1{
+                table=toggleButton(table:table, val:val)
+            }
+
+            //table.backgroundColor = UIColor.black
+
+            mainView.addSubview(table)
+           
+            table.translatesAutoresizingMaskIntoConstraints = false
+            if i==0{
+                table.topAnchor.constraint(equalTo: viewInstruction.bottomAnchor, constant: 57).isActive=true
+            }
+            else{
+                table.topAnchor.constraint(equalTo: tables[i-1].bottomAnchor, constant: 10).isActive=true
+            }
+            table.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: -10)
+            table.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -10)
+            table.widthAnchor.constraint(equalToConstant: 400).isActive=true
+            table.heightAnchor.constraint(equalToConstant: 60).isActive=true
+            height+=60
+            
+            tables.append(table)
+            if height>=60*6+57{
+                updateConstraints(number: 80)
+                height-=100
+            }
+            
         }
+       
+//        var tableview: ContentSizedTableView = ContentSizedTableView()
+//        tableview.translatesAutoresizingMaskIntoConstraints = false
+//        tableview.dataSource = self
+//        tableview.delegate = self
+//        
+//        tableview.frame=CGRect(x: 25, y: 277, width: 320, height: data.count*100)
+//        tableview.showsHorizontalScrollIndicator=false
+//        tableview.showsVerticalScrollIndicator=false
+//        tableview.bounces=false
+//        tableview.isScrollEnabled=false
+//        tableview.separatorStyle = .none
+//        tableview.allowsSelection=false
+//        self.registerTableViewCells(tableview: tableview)
+//        mainView.addSubview(tableview)
+//       // tableview.topAnchor.constraint(equalTo: viewQuestion.bottomAnchor, constant: 57).isActive=true
+//        tableview.topAnchor.constraint(equalTo: viewInstruction.bottomAnchor, constant: 57).isActive=true
+//        tableview.widthAnchor.constraint(equalToConstant: 320).isActive=true
+//        tableview.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive=true
+//        
+//        
+//        var  height = data.count*80
+//        while height>=580{
+//            updateConstraints(number: 40)
+//            height-=60
+//        }
+//        tableview.sizeToFit()
         
-        return UITableViewCell()
+        
+    }
+    func toggleButton(table:CustomTable, val:Int)->CustomTable{
+      
+        for i in 0..<table.buttons.count{
+            
+            if i==val{
+                table.buttons[i].isSelected=true
+            }
+        }
+        return table
+    }
+    func untoggleButton(table:CustomTable)->CustomTable{
+        
+        for i in 0..<table.buttons.count{
+                table.buttons[i].isSelected=false
+           
+        }
+        return table
     }
     
-    private func registerTableViewCells(tableview: ContentSizedTableView) {
-        let textFieldCell = UINib(nibName: "CustomTableViewCell",
-                                  bundle: nil)
-        tableview.register(textFieldCell,
-                           forCellReuseIdentifier: "CustomTableViewCell")
-    }
+    
+//    func tableView(_ tableView: UITableView,
+//                   numberOfRowsInSection section: Int) -> Int {
+//        return self.data.count
+//    }
+    
+//    func tableView(_ tableView: UITableView,
+//                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell {
+//            cell.labelName.text = data[indexPath.row]
+//            cell.delegate = self
+//            cell.index_row = indexPath.row
+//
+//            if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+String(indexPath.row))==true{
+//                print(indexPath.item, String(questionNumber)+"_"+String(indexPath.row))
+//                if (defaults.integer(forKey: String(questionNumber)+"_"+String(indexPath.row)) != (-9999)){
+//                    print("aa",indexPath.item, String(questionNumber)+"_"+String(indexPath.row))
+//                    cell.buttons[defaults.integer(forKey: String(questionNumber)+"_"+String(indexPath.row))].isSelected = true
+//
+//                }
+//
+//            }
+//            return cell
+//        }
+//
+//        return UITableViewCell()
+//    }
+    
+//    private func registerTableViewCells(tableview: ContentSizedTableView) {
+//        let textFieldCell = UINib(nibName: "CustomTableViewCell",
+//                                  bundle: nil)
+//        tableview.register(textFieldCell,
+//                           forCellReuseIdentifier: "CustomTableViewCell")
+//    }
     ///______________________________________________________________________
     
-    func generateAffectionGrid(){
+    func generateAffectGrid(){
         
         var fin_loc: CGPoint = CGPoint(x: -1000, y: -1000)
         if isKeyPresentInUserDefaults(key: String(questionNumber)+"_")==true{
@@ -499,14 +564,14 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, U
             
             fin_loc = NSCoder.cgPoint(for: location!)
         }
-        let affectionGrid: ViewAffectGrid = ViewAffectGrid(currLocation: fin_loc, frame: view.frame, isLine: true)
-        affectionGrid.delegate=self
-        affectionGrid.translatesAutoresizingMaskIntoConstraints = false
-        mainView.addSubview(affectionGrid)
-        affectionGrid.topAnchor.constraint(equalTo: viewQuestion.bottomAnchor, constant: 57).isActive=true
-        affectionGrid.heightAnchor.constraint(equalToConstant: 360).isActive=true
-        affectionGrid.widthAnchor.constraint(equalToConstant: 360).isActive=true
-        affectionGrid.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive=true
+        let affectGrid: CustomViewAffectGrid = CustomViewAffectGrid(currLocation: fin_loc, frame: view.frame, isLine: true)
+        affectGrid.delegate=self
+        affectGrid.translatesAutoresizingMaskIntoConstraints = false
+        mainView.addSubview(affectGrid)
+        affectGrid.topAnchor.constraint(equalTo: viewInstruction.bottomAnchor, constant: 57).isActive=true
+        affectGrid.heightAnchor.constraint(equalToConstant: 360).isActive=true
+        affectGrid.widthAnchor.constraint(equalToConstant: 360).isActive=true
+        affectGrid.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive=true
         
         
     }

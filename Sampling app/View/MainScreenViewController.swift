@@ -84,6 +84,7 @@ class MainScreenViewController: UIViewController{
     
     
     @IBAction func doTest(_ sender: Any) {
+        HelpFunction.isTestSet(val:true)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "ViewWelcome") as! ViewWelcome
         //navigationController?.setViewControllers([viewController], animated:true)

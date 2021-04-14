@@ -52,6 +52,7 @@
 		21D309CC25DFB41100897A1A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D309CB25DFB41100897A1A /* CustomButton.swift */; };
 		21D309CF25DFC30000897A1A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D309CE25DFC30000897A1A /* CustomTextField.swift */; };
 		21D9FE5C25E6F0350024969B /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D9FE5B25E6F0350024969B /* ContentSizedTableView.swift */; };
+		21FD25012626231700CCB35A /* CustomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD25002626231700CCB35A /* CustomTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		21D309CB25DFB41100897A1A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		21D309CE25DFC30000897A1A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21D9FE5B25E6F0350024969B /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
+		21FD25002626231700CCB35A /* CustomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				213310CD25ED6CC10032B7E1 /* ButtonsController.swift */,
 				21BE9C7B26246FE700484F7C /* CustomMultipleChoice.swift */,
 				21749DB8262597700089A50A /* ViewInstruction.swift */,
+				21FD25002626231700CCB35A /* CustomTable.swift */,
 			);
 			path = "Custom Elements";
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				213310CE25ED6CC10032B7E1 /* ButtonsController.swift in Sources */,
 				21933FDA25DBFFD600CBF7B1 /* AppDelegate.swift in Sources */,
 				21A511042625C0A600BC0286 /* SetStyle.swift in Sources */,
+				21FD25012626231700CCB35A /* CustomTable.swift in Sources */,
 				21365A9325E41270009024BF /* Question3.swift in Sources */,
 				21933FDC25DBFFD600CBF7B1 /* SceneDelegate.swift in Sources */,
 				217DFD0825E9143400083823 /* Question6.swift in Sources */,
