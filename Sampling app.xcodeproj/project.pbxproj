@@ -28,6 +28,7 @@
 		21365A9B25E424C9009024BF /* color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A9A25E424C9009024BF /* color.swift */; };
 		21365A9E25E425F8009024BF /* Question4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A9D25E425F8009024BF /* Question4.swift */; };
 		213C38A525EE71D500781059 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213C38A425EE71D500781059 /* UserNotification.swift */; };
+		2170B7312628B851005AB9DD /* ParticipantAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170B7302628B851005AB9DD /* ParticipantAnswer.swift */; };
 		21749DB9262597700089A50A /* ViewInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21749DB8262597700089A50A /* ViewInstruction.swift */; };
 		2177573F25E3EC8000998C86 /* QuestionControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2177573E25E3EC8000998C86 /* QuestionControllerView.swift */; };
 		217DFD0825E9143400083823 /* Question6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DFD0725E9143400083823 /* Question6.swift */; };
@@ -52,6 +53,13 @@
 		21D309CC25DFB41100897A1A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D309CB25DFB41100897A1A /* CustomButton.swift */; };
 		21D309CF25DFC30000897A1A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D309CE25DFC30000897A1A /* CustomTextField.swift */; };
 		21D9FE5C25E6F0350024969B /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D9FE5B25E6F0350024969B /* ContentSizedTableView.swift */; };
+		21FA0CA72628BF9600E66398 /* SliderQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA0CA62628BF9600E66398 /* SliderQuestion.swift */; };
+		21FA0CAA2628C08A00E66398 /* DiscreteSliderQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA0CA92628C08A00E66398 /* DiscreteSliderQuestion.swift */; };
+		21FA0CAD2628C15600E66398 /* AffectGridQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA0CAC2628C15600E66398 /* AffectGridQuestion.swift */; };
+		21FA0CB02628C47300E66398 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA0CAF2628C47300E66398 /* Question.swift */; };
+		21FA0CB32628C5E400E66398 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA0CB22628C5E400E66398 /* Participant.swift */; };
+		21FA0CB62628C83000E66398 /* ChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA0CB52628C83000E66398 /* ChoiceQuestion.swift */; };
+		21FA0CB92628C87300E66398 /* MultipleChoiseQuestionVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA0CB82628C87300E66398 /* MultipleChoiseQuestionVariant.swift */; };
 		21FD25012626231700CCB35A /* CustomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD25002626231700CCB35A /* CustomTable.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +83,7 @@
 		21365A9A25E424C9009024BF /* color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = color.swift; sourceTree = "<group>"; };
 		21365A9D25E425F8009024BF /* Question4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question4.swift; sourceTree = "<group>"; };
 		213C38A425EE71D500781059 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
+		2170B7302628B851005AB9DD /* ParticipantAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantAnswer.swift; sourceTree = "<group>"; };
 		21749DB8262597700089A50A /* ViewInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInstruction.swift; sourceTree = "<group>"; };
 		2177573E25E3EC8000998C86 /* QuestionControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionControllerView.swift; sourceTree = "<group>"; };
 		217DFD0725E9143400083823 /* Question6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question6.swift; sourceTree = "<group>"; };
@@ -101,6 +110,13 @@
 		21D309CB25DFB41100897A1A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		21D309CE25DFC30000897A1A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21D9FE5B25E6F0350024969B /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
+		21FA0CA62628BF9600E66398 /* SliderQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderQuestion.swift; sourceTree = "<group>"; };
+		21FA0CA92628C08A00E66398 /* DiscreteSliderQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscreteSliderQuestion.swift; sourceTree = "<group>"; };
+		21FA0CAC2628C15600E66398 /* AffectGridQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectGridQuestion.swift; sourceTree = "<group>"; };
+		21FA0CAF2628C47300E66398 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		21FA0CB22628C5E400E66398 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		21FA0CB52628C83000E66398 /* ChoiceQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceQuestion.swift; sourceTree = "<group>"; };
+		21FA0CB82628C87300E66398 /* MultipleChoiseQuestionVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiseQuestionVariant.swift; sourceTree = "<group>"; };
 		21FD25002626231700CCB35A /* CustomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +145,14 @@
 		2133BBA42620A30F008F1AC5 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				2170B7302628B851005AB9DD /* ParticipantAnswer.swift */,
+				21FA0CA62628BF9600E66398 /* SliderQuestion.swift */,
+				21FA0CA92628C08A00E66398 /* DiscreteSliderQuestion.swift */,
+				21FA0CAC2628C15600E66398 /* AffectGridQuestion.swift */,
+				21FA0CAF2628C47300E66398 /* Question.swift */,
+				21FA0CB22628C5E400E66398 /* Participant.swift */,
+				21FA0CB52628C83000E66398 /* ChoiceQuestion.swift */,
+				21FA0CB82628C87300E66398 /* MultipleChoiseQuestionVariant.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -349,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21933FE425DBFFD600CBF7B1 /* Sampling_app.xcdatamodeld in Sources */,
+				2170B7312628B851005AB9DD /* ParticipantAnswer.swift in Sources */,
 				21365A9825E42034009024BF /* CustomSlider.swift in Sources */,
 				211D8D6925DD906A00FD4249 /* CardViewController.swift in Sources */,
 				21C0F6D825E6C0910081E8C1 /* Question5.swift in Sources */,
@@ -362,6 +387,7 @@
 				21C0F6D525E6BFC70081E8C1 /* CustomTableViewCell.swift in Sources */,
 				2133BBA12620A2A9008F1AC5 /* RestApi.swift in Sources */,
 				21365A9B25E424C9009024BF /* color.swift in Sources */,
+				21FA0CA72628BF9600E66398 /* SliderQuestion.swift in Sources */,
 				211D8D7625DDA63600FD4249 /* MainScreenViewController.swift in Sources */,
 				211D8D6225DD8DB100FD4249 /* CustomView.swift in Sources */,
 				21365A9025E4110D009024BF /* RadioButtonsController.swift in Sources */,
@@ -369,9 +395,13 @@
 				21933FDE25DBFFD600CBF7B1 /* ViewController.swift in Sources */,
 				213310CB25ED4A2D0032B7E1 /* QuestionViewController.swift in Sources */,
 				21C0F6BD25E553690081E8C1 /* ViewAffectGrid.swift in Sources */,
+				21FA0CAD2628C15600E66398 /* AffectGridQuestion.swift in Sources */,
 				2177573F25E3EC8000998C86 /* QuestionControllerView.swift in Sources */,
+				21FA0CB02628C47300E66398 /* Question.swift in Sources */,
+				21FA0CB92628C87300E66398 /* MultipleChoiseQuestionVariant.swift in Sources */,
 				213C38A525EE71D500781059 /* UserNotification.swift in Sources */,
 				21365A9E25E425F8009024BF /* Question4.swift in Sources */,
+				21FA0CB62628C83000E66398 /* ChoiceQuestion.swift in Sources */,
 				213310CE25ED6CC10032B7E1 /* ButtonsController.swift in Sources */,
 				21933FDA25DBFFD600CBF7B1 /* AppDelegate.swift in Sources */,
 				21A511042625C0A600BC0286 /* SetStyle.swift in Sources */,
@@ -379,9 +409,11 @@
 				21365A9325E41270009024BF /* Question3.swift in Sources */,
 				21933FDC25DBFFD600CBF7B1 /* SceneDelegate.swift in Sources */,
 				217DFD0825E9143400083823 /* Question6.swift in Sources */,
+				21FA0CAA2628C08A00E66398 /* DiscreteSliderQuestion.swift in Sources */,
 				21D9FE5C25E6F0350024969B /* ContentSizedTableView.swift in Sources */,
 				212F03822623A45C0096042F /* ViewNotFull.swift in Sources */,
 				212F037F26239D580096042F /* HelpFunctions.swift in Sources */,
+				21FA0CB32628C5E400E66398 /* Participant.swift in Sources */,
 				21D309CF25DFC30000897A1A /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

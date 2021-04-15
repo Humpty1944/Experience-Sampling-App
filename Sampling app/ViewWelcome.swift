@@ -18,6 +18,8 @@ class ViewWelcome: UIViewController {
         HelpFunction.setReturn(val: false)
         setUserDefualts()
         setLabelText()
+        RestApi.questionResource.addObserver(self)
+        RestApi.questionResource.loadIfNeeded()
        
         // Do any additional setup after loading the view.
     }
