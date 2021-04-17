@@ -28,7 +28,7 @@ class CustomTable: UIView, ButtonControllerDelegate {
             }
             return -1
         }
-    internal init(numbers: Int, text: String = "sfsdf",index: Int,question: Int, val: Int, frame:CGRect) {
+    internal init(numbers: Int, text: String = "placeholer",index: Int,question: Int, val: Int, frame:CGRect) {
         super.init(frame: frame)
         for i in 0..<4{
             arrayNumbers.append(i)
@@ -71,7 +71,7 @@ class CustomTable: UIView, ButtonControllerDelegate {
         label.frame = CGRect(x: 5, y: 5, width: 40, height: 14)
         self.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive=true
+        label.topAnchor.constraint(equalTo: self.topAnchor, constant: -2).isActive=true
         label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive=true
         buttonsConfigure()
         //label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 5).isActive=true

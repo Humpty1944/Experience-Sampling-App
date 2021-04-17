@@ -661,10 +661,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYq-I1-Yge" customClass="CustomButton" customModule="Sampling_app" customModuleProvider="target">
+                                <rect key="frame" x="182" y="442" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Umq-3n-3OG"/>
+                                    <constraint firstAttribute="height" constant="50" id="j5w-MB-1qH"/>
+                                </constraints>
+                                <state key="normal" image="goforward" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.56939858200000004" green="0.75262844559999997" blue="0.98532575369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendAgain:" destination="1Vi-2A-3S6" eventType="touchUpInside" id="rNH-tJ-Hnl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Plm-6o-FQ2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="WYq-I1-Yge" firstAttribute="top" secondItem="gKo-0U-l2B" secondAttribute="bottom" constant="30" id="13m-x6-EK1"/>
+                            <constraint firstItem="WYq-I1-Yge" firstAttribute="centerX" secondItem="Plm-6o-FQ2" secondAttribute="centerX" id="VTL-nf-KQx"/>
                             <constraint firstItem="gIt-LX-YC7" firstAttribute="centerX" secondItem="gKo-0U-l2B" secondAttribute="centerX" id="YjH-7H-fg2"/>
                             <constraint firstItem="gKo-0U-l2B" firstAttribute="top" secondItem="gIt-LX-YC7" secondAttribute="bottom" constant="46" id="gbB-j8-TGc"/>
                             <constraint firstItem="gIt-LX-YC7" firstAttribute="top" secondItem="Plm-6o-FQ2" secondAttribute="top" constant="293" id="nv3-Iz-zNR"/>
@@ -673,6 +697,9 @@
                             <constraint firstItem="Plm-6o-FQ2" firstAttribute="trailing" secondItem="gKo-0U-l2B" secondAttribute="trailing" constant="30" id="ydm-Bd-lyV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonRepaetSend" destination="WYq-I1-Yge" id="YGB-Cu-T6S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQl-ub-8S3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1099,7 +1126,6 @@
                                     <constraint firstAttribute="height" constant="50" id="Q9L-ym-4se"/>
                                     <constraint firstAttribute="width" constant="50" id="yI1-rx-BMF"/>
                                 </constraints>
-                                <state key="normal" image="arrow.turn.up.left" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
@@ -1617,6 +1643,9 @@
         <designable name="VWd-f0-Ksv">
             <size key="intrinsicContentSize" width="90" height="30"/>
         </designable>
+        <designable name="WYq-I1-Yge">
+            <size key="intrinsicContentSize" width="19.666666666666668" height="22.333333333333332"/>
+        </designable>
         <designable name="bJn-qI-xmD">
             <size key="intrinsicContentSize" width="19.666666666666668" height="29"/>
         </designable>
@@ -1630,7 +1659,7 @@
             <size key="intrinsicContentSize" width="62" height="29"/>
         </designable>
         <designable name="t18-v0-O3Q">
-            <size key="intrinsicContentSize" width="19.666666666666668" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="ulh-uG-nsS">
             <size key="intrinsicContentSize" width="-1" height="30"/>
@@ -1649,6 +1678,7 @@
         <image name="Email" width="512" height="512"/>
         <image name="Phone" width="512" height="512"/>
         <image name="arrow.turn.up.left" catalog="system" width="128" height="99"/>
+        <image name="goforward" catalog="system" width="121" height="128"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

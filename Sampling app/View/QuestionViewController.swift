@@ -165,7 +165,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
         buttonNext.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -10).isActive=true
         buttonNext.heightAnchor.constraint(equalToConstant: 50).isActive=true
         buttonNext.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        if questionNumber != 1 && !(HelpFunction.isReturn == true && HelpFunction.questions.last == questionNumber){
+        if questionNumber != 1 && !(HelpFunction.isReturn == true && HelpFunction.questions.first == questionNumber){
             var buttonReturn: UIButton = UIButton()
             // buttonReturn.setTitle("Продолжить", for: .normal)
             let image = UIImage(systemName: "arrow.turn.up.left")
