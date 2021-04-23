@@ -33,7 +33,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
     }
     
     func affectGridLocation(_ affectGrid: CustomViewAffectGrid, location: CGPoint) {
-        defaults.setValue(NSCoder.string(for: location), forKey: String(questionNumber)+"_")
+        defaults.setValue(NSCoder.string(for: location), forKey: String(questionNumber)+"_"+"0")
         HelpFunction.addDict(position: questionNumber, index:-1)
     }
     
@@ -45,7 +45,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
     
     func didSelectButton(selectedButton: RadioButton?, index:Int) {
         if index != -1{
-            defaults.setValue(index, forKey: String(questionNumber)+"_")
+            defaults.setValue(index, forKey: String(questionNumber)+"_"+"0")
             HelpFunction.addDict(position: questionNumber, index:-1)
         }
     }
@@ -57,6 +57,10 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var lableQuestionNumber: UILabel!
     @IBOutlet weak var labelQuestionText: UILabel!
+    
+    
+    @IBOutlet weak var labelHint: UILabel!
+    
    // @IBOutlet weak var buttonReturn: CustomButton!
   //  @IBOutlet weak var buttonNextQuestion: CustomButtonBase!
     
@@ -84,7 +88,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
     var radioButtonController: RadioButtonsController?
     //var buttonController: ButtonsController?
    
-    
+    weak var timer: Timer?
     
     
     override func viewDidLoad() {
@@ -96,8 +100,56 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
         self.viewInstruction.label.isHidden=true
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTap(recognizer:)))
         viewInstruction.closeButton.addGestureRecognizer(tap)
-
+        print(questionNumber, " " , HelpFunction.questionArr.count)
+        viewInstruction.label.text = HelpFunction.questionArr[questionNumber-1]["instructionText"] as! String
+        labelQuestionText.text = HelpFunction.questionArr[questionNumber-1]["questionText"] as! String
+        labelHint.text =  HelpFunction.questionArr[questionNumber-1]["questionSubtext"] as! String
+         timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+        if HelpFunction.isTest == true{
+            openInstructionForAll()
+        }
         getQuestion()
+    }
+    @objc func updateCounting(){
+        let curr_notif = UserDefaults.standard.object(forKey: "CurrTimeForNotif") as! Date
+       // UserDefaults.standard.setValue(false, forKey: "BeginNotif")
+       // let currIndex = UserDefaults.standard.object(forKey: "currIndex")as! Int
+      // let d = UserNotification.fetchNotif(date_curr: Date())
+       // let nearest = UserNotification.findNearest(data: d).value(forKey: "date") as! Date
+        let minutes = curr_notif.minutes(from: Date())
+        print()
+       // print("minup",minutes)
+        if abs(minutes)>=20{
+           // UserDefaults.standard.setValue(currIndex+1, forKey: "currIndex")
+            timer?.invalidate()
+            var entries = UserDefaults.standard.string(forKey: "entries")
+                        entries!+="F "
+                        UserDefaults.standard.setValue(entries, forKey: "entries")
+            var help = HelpFunction()
+            help.sendDefault()
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let viewController = storyboard.instantiateViewController(identifier: "MainScreenViewController") as! MainScreenViewController
+                        self.navigationController?.pushViewController(viewController, animated: false)
+        }
+//        let curr_notif = UserDefaults.standard.object(forKey: "CurrTimeForNotif") as! Date
+//       // print("currup",curr_notif)
+//
+//        let minutes = curr_notif.minutes(from: Date())
+//        UserDefaults.standard.setValue(false, forKey: "BeginNotif")
+//        let currIndex = UserDefaults.standard.object(forKey: "currIndex")as! Int
+//       //
+//        print("minup",minutes)
+//        if abs(minutes)<=20{
+//            UserDefaults.standard.setValue(currIndex+1, forKey: "currIndex")
+//            var entries = UserDefaults.standard.string(forKey: "entries")
+//            entries!+="F "
+//            UserDefaults.standard.setValue(entries, forKey: "entries")
+//            HelpFunction.sendDefault()
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let viewController = storyboard.instantiateViewController(identifier: "MainScreenViewController") as! MainScreenViewController
+//            self.navigationController?.pushViewController(viewController, animated: false)
+//        }
+       
     }
     
     @objc
@@ -146,7 +198,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
 //        }
         //buttonNextQuestion.removeFromSuperview()
         var buttonNext: UIButton = UIButton()
-        if questionNumber == 5 || (HelpFunction.isReturn == true && HelpFunction.questions.last == questionNumber){
+        if questionNumber == HelpFunction.questionArr.count || (HelpFunction.isReturn == true && HelpFunction.questions.last == questionNumber){
             buttonNext.setTitle("Закончить", for: .normal)
         }
         else{
@@ -203,20 +255,23 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
         else{
             viewController.questionNumber=self.questionNumber-1
         }
+        timer?.invalidate()
         self.navigationController?.popViewController(animated: true)
     }
 
     
     @objc func buttonAction(sender: UIButton!) {
-       print(self.questionNumber+1 == 6 || HelpFunction.questions.count == HelpFunction.pos || (HelpFunction.isReturn == true && HelpFunction.questions.isEmpty == true))
-        if self.questionNumber+1 == 6 || HelpFunction.questions.count == HelpFunction.pos || (HelpFunction.isReturn == true && HelpFunction.questions.isEmpty == true){
+      // print(self.questionNumber+1 == 6 || HelpFunction.questions.count == HelpFunction.pos || (HelpFunction.isReturn == true && HelpFunction.questions.isEmpty == true))
+        if self.questionNumber == HelpFunction.questionArr.count || HelpFunction.questions.count == HelpFunction.pos || (HelpFunction.isReturn == true && HelpFunction.questions.isEmpty == true){
             if HelpFunction.checkReceiveAllAnswers()==true{
+                timer?.invalidate()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewController(identifier: "ViewAllCorrect") as! ViewAllCorrect
                 //viewController.questionNumber=self.questionNumber+1
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
             else{
+                timer?.invalidate()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewController(identifier: "ViewNotFull") as! ViewNotFull
                 //viewController.questionNumber=self.questionNumber+1
@@ -233,7 +288,7 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
                 viewController.questionNumber=self.questionNumber+1
             }
             
-            
+            timer?.invalidate()
             self.navigationController?.pushViewController(viewController, animated: true)
             
         }
@@ -242,22 +297,39 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
     
     func getQuestion(){
         
+        HelpFunction.questionArr.sort { ($0["questionNumber"] as! Int) < ($1["questionNumber"] as! Int) }
+
+        let type = HelpFunction.questionArr[questionNumber-1]["questionType"] as! String
+        //HelpFunction.questionsLook.sorted(by: { $0.ID < $1.ID })
         lableQuestionNumber.text!+=" "+String(questionNumber)
-        if questionNumber==1{
-            generateRadioGroup(number: 3)
+        print("type ",type)
+        if type == "Slider"{
+            generateSliders(number: 1)
         }
-        else if questionNumber==2{
-            generateSimpleSlider(number: 3)
-        }
-        else if questionNumber==3{
-            generateTableView(number: 8)
-        }
-        else if questionNumber==4 {
+        else if type == "DiscreteSlider"
+        {
+            generateSimpleSlider(number: (HelpFunction.questionArr[questionNumber-1]["scaleTexts"] as! [String]).count)
+        }else if type == "AffectGrid"{
             generateAffectGrid()
+            
+        }else if type == "Choose"{
+            generateRadioGroup(number: (HelpFunction.questionArr[questionNumber-1]["answers"] as! [String]).count)
         }
-        else if questionNumber==5{
-            generateSliders(number: 3)
-        }
+//        if questionNumber==1{
+//            generateRadioGroup(number: 3)
+//        }
+//        else if questionNumber==2{
+//            generateSimpleSlider(number: 3)
+//        }
+//        else if questionNumber==3{
+//            generateTableView(number: 8)
+//        }
+//        else if questionNumber==4 {
+//            generateAffectGrid()
+//        }
+//        else if questionNumber==5{
+//            generateSliders(number: 3)
+//        }
 //        else{
 //            generateMyltipleChoiceQuestion(number: 3)
 //        }
@@ -287,31 +359,41 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
     func generateSliders(number:Int){
         var sliders: [CustomSlider] = [CustomSlider]()
         var height=0
-        var value:Float = 5
+        var value:Float = 0
         
         for i in 0..<number{
             value = 5
             if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+String(i))==true{
                 value = defaults.object(forKey: String(questionNumber)+"_"+String(i)) as! Float
                 
-                
             }
-          
-            var slider: CustomSlider = CustomSlider(value_my: value, frame: self.view.frame, min: 0, max: 10)
-            slider.delegate=self
+            else{
+                defaults.setValue( -9999, forKey: String(questionNumber)+"_"+String(i))
+            }
+           // HelpFunction.questionArr[questionNumber]["sliderMinValue"] as! Int
+           // HelpFunction.questionArr[questionNumber]["sliderMaxValue"] as! Int
             
+            var slider: CustomSlider = CustomSlider(value_my: value, frame: self.view.frame, min:  HelpFunction.questionArr[questionNumber-1]["sliderMinValue"] as! Float, max:  HelpFunction.questionArr[questionNumber-1]["sliderMaxValue"] as! Float)
+            slider.delegate=self
+            slider.value=((HelpFunction.questionArr[questionNumber-1]["sliderMinValue"] as! Float) +  (HelpFunction.questionArr[questionNumber-1]["sliderMaxValue"] as! Float))/2
             //slider.maximumValue=10
             //slider.minimumValue=0
             slider.index_pos = i
             slider.minimumTrackTintColor = color.UIColorFromRGB(rgbValue: 0x6C6C6C)
             slider.maximumTrackTintColor = color.UIColorFromRGB(rgbValue: 0x6C6C6C)
+            if HelpFunction.questionArr[questionNumber-1]["isDiscrete"] as! Int == 0{
+                slider.isTick = false
+            }else{
+                slider.isTick = true
+            }
+           
 //            if value != 5 {
 //            slider.value=value
 //            }
             mainView.addSubview(slider)
             slider.translatesAutoresizingMaskIntoConstraints = false
             if i==0{
-                slider.isTick=true
+                //slider.isTick=true
                 //slider.topAnchor.constraint(equalTo: viewQuestion.bottomAnchor, constant: 57).isActive=true
                 slider.topAnchor.constraint(equalTo: viewInstruction.bottomAnchor, constant: 57).isActive=true
             }
@@ -338,19 +420,23 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
         var sliders: [CustomSliderLabels]=[CustomSliderLabels]()
         var height=0
         for i in 0..<number{
-            var value : Float = 5.0
+            var value : Float = 0
             var text = ""
             if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+String(i))==true{
                 value = defaults.object(forKey: String(questionNumber)+"_"+String(i)) as! Float
                 
                 text=String(Int(value))
             }
+            else{
+                defaults.setValue( -9999, forKey: String(questionNumber)+"_"+String(i))
+            }
+            //(HelpFunction.questionArr[questionNumber]["scaleText"] as [String])[0]
             var slider: CustomSliderLabels = CustomSliderLabels(text: text, frame: view.frame)
             slider.delegate=self
-            slider.segments = "First "+String(i)
+            slider.segments =  (HelpFunction.questionArr[questionNumber-1]["scaleTexts"] as! [String])[i]
             
-            slider.maximumValue=10
-            slider.minimumValue=0
+            slider.maximumValue = HelpFunction.questionArr[questionNumber-1]["discreteSliderMaxValue"] as! Float
+            slider.minimumValue = HelpFunction.questionArr[questionNumber-1]["discreteSliderMinValue"] as! Float
             slider.index_pos = i
             slider.minimumTrackTintColor = color.UIColorFromRGB(rgbValue: 0x6C6C6C)
             slider.maximumTrackTintColor = color.UIColorFromRGB(rgbValue: 0x6C6C6C)
@@ -387,14 +473,17 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
         var buttons:[RadioButton] = [RadioButton]()
         var height=0
         var selectButton:Int = -1
-        if isKeyPresentInUserDefaults(key: String(questionNumber)+"_")==true{
+        if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+"0")==true{
             
-            selectButton = defaults.object(forKey: String(questionNumber)+"_") as! Int
+            selectButton = defaults.object(forKey: String(questionNumber)+"_"+"0") as! Int
+        }
+        else{
+            defaults.setValue( -9999, forKey: String(questionNumber)+"_"+"0")
         }
         for i in 0..<number{
             var button: RadioButton = RadioButton()
-            
-            button.setTitle("Test", for: .normal)
+            //HelpFunction.questionArr[questionNumber]["answers"] as! [String]
+            button.setTitle( (HelpFunction.questionArr[questionNumber-1]["answers"] as! [String])[i], for: .normal)
             button.setTitleColor(color.UIColorFromRGB(rgbValue: 0x6C6C6C), for: .normal)
             button.circleRadius=15
             mainView.insertSubview(button,at:0)
@@ -439,10 +528,15 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
             if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+String(i))==true{
                 val = defaults.object(forKey: String(questionNumber)+"_"+String(i)) as! Int
             }
+            else{
+    
+                    defaults.setValue( -9999, forKey: String(questionNumber)+"_"+String(i))
+            
+            }
             var table = CustomTable(numbers: 5, index: i, question: questionNumber, val:val, frame: CGRect(x: 0, y: 0, width: self.mainView.bounds.width-10, height: 50))
             //table.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width-10, height: 30)
             table.clipsToBounds = true
-            print(val, "dd")
+          //  print(val, "dd")
             if val != -1{
                 table=toggleButton(table:table, val:val)
             }
@@ -559,12 +653,26 @@ class QuestionViewController: UIViewController, RadioButtonControllerDelegate, A
     func generateAffectGrid(){
         
         var fin_loc: CGPoint = CGPoint(x: -1000, y: -1000)
-        if isKeyPresentInUserDefaults(key: String(questionNumber)+"_")==true{
-            let location = defaults.string(forKey: String(questionNumber)+"_")
+        if isKeyPresentInUserDefaults(key: String(questionNumber)+"_"+"0")==true{
+            let location = defaults.string(forKey: String(questionNumber)+"_"+"0")
             
             fin_loc = NSCoder.cgPoint(for: location!)
         }
+        else{
+            defaults.setValue(NSCoder.string(for: fin_loc), forKey: String(questionNumber)+"_"+"0")
+        }
         let affectGrid: CustomViewAffectGrid = CustomViewAffectGrid(currLocation: fin_loc, frame: view.frame, isLine: true)
+       // let upperX = HelpFunction.questionArr[questionNumber]["upperX"] as! String
+        let upperXText = HelpFunction.questionArr[questionNumber-1]["upperXText"] as! String
+        let lowerXText = HelpFunction.questionArr[questionNumber-1]["lowerXText"] as! String
+        let upperYText = HelpFunction.questionArr[questionNumber-1]["upperYText"] as! String
+        let lowerYText = HelpFunction.questionArr[questionNumber-1]["lowerYText"] as! String
+        let leftUpperSquareText: String = HelpFunction.questionArr[questionNumber-1]["leftUpperSquareText"] as? String ?? ""
+        let rightUpperSquareText: String = HelpFunction.questionArr[questionNumber-1]["rightUpperSquareText"] as? String ?? ""
+        let leftLowerSquareText = HelpFunction.questionArr[questionNumber-1]["leftLowerSquareText"] as? String ?? ""
+        let rightLowerSquareText = HelpFunction.questionArr[questionNumber-1]["rightLowerSquareText"] as? String ?? ""
+        let arr = [leftUpperSquareText,upperYText,rightUpperSquareText, upperXText, lowerXText, leftLowerSquareText, lowerYText, rightLowerSquareText ]
+        affectGrid.segments = arr //HelpFunction.questionArr[questionNumber]["answers"] as! [String]
         affectGrid.delegate=self
         affectGrid.translatesAutoresizingMaskIntoConstraints = false
         mainView.addSubview(affectGrid)

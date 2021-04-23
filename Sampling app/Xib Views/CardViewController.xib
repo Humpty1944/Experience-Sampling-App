@@ -34,7 +34,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Для входа необходимо ввести 8-значный код участника:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBZ-Uj-DpJ">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Для входа необходимо ввести id участника:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBZ-Uj-DpJ">
                                     <rect key="frame" x="16" y="38" width="284" height="36"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="36" id="3VT-90-Dn1"/>
@@ -47,8 +47,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oz9-br-RYz" customClass="CustomView" customModule="Sampling_app" customModuleProvider="target">
                                     <rect key="frame" x="14" y="86" width="293" height="50"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12-14-0031" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohe-QT-Rqv">
-                                            <rect key="frame" x="100" y="15" width="89" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohe-QT-Rqv">
+                                            <rect key="frame" x="129" y="15" width="28" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.42348030209999998" green="0.42355769869999998" blue="0.4234754443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                     <color key="tintColor" red="0.42348030209999998" green="0.42355769869999998" blue="0.4234754443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="9PZ-jZ-hBp"/>
-                                        <constraint firstItem="ohe-QT-Rqv" firstAttribute="leading" secondItem="oz9-br-RYz" secondAttribute="leading" constant="100" id="Ky5-ce-YTR"/>
+                                        <constraint firstItem="ohe-QT-Rqv" firstAttribute="leading" secondItem="oz9-br-RYz" secondAttribute="leading" constant="129" id="Ky5-ce-YTR"/>
                                         <constraint firstItem="ohe-QT-Rqv" firstAttribute="top" secondItem="oz9-br-RYz" secondAttribute="top" constant="15" id="PXW-Ff-34B"/>
                                         <constraint firstItem="ohe-QT-Rqv" firstAttribute="centerY" secondItem="oz9-br-RYz" secondAttribute="centerY" id="w7N-9r-rYZ"/>
                                         <constraint firstAttribute="width" constant="293" id="zak-6T-6YG"/>

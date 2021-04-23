@@ -23,15 +23,12 @@
 		21365A8925E4084F009024BF /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A8825E4084F009024BF /* CustomLabel.swift */; };
 		21365A8D25E410AB009024BF /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A8C25E410AB009024BF /* RadioButton.swift */; };
 		21365A9025E4110D009024BF /* RadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A8F25E4110D009024BF /* RadioButtonsController.swift */; };
-		21365A9325E41270009024BF /* Question3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A9225E41270009024BF /* Question3.swift */; };
 		21365A9825E42034009024BF /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A9725E42034009024BF /* CustomSlider.swift */; };
 		21365A9B25E424C9009024BF /* color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A9A25E424C9009024BF /* color.swift */; };
-		21365A9E25E425F8009024BF /* Question4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21365A9D25E425F8009024BF /* Question4.swift */; };
 		213C38A525EE71D500781059 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213C38A425EE71D500781059 /* UserNotification.swift */; };
+		21519C66262CB3CC000E2E4F /* Notification.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21519C64262CB3CC000E2E4F /* Notification.xcdatamodeld */; };
 		2170B7312628B851005AB9DD /* ParticipantAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170B7302628B851005AB9DD /* ParticipantAnswer.swift */; };
 		21749DB9262597700089A50A /* ViewInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21749DB8262597700089A50A /* ViewInstruction.swift */; };
-		2177573F25E3EC8000998C86 /* QuestionControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2177573E25E3EC8000998C86 /* QuestionControllerView.swift */; };
-		217DFD0825E9143400083823 /* Question6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DFD0725E9143400083823 /* Question6.swift */; };
 		2187AE3225E90A3B0093D859 /* icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2187AE3125E90A3B0093D859 /* icon3.png */; };
 		21933FDA25DBFFD600CBF7B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21933FD925DBFFD600CBF7B1 /* AppDelegate.swift */; };
 		21933FDC25DBFFD600CBF7B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21933FDB25DBFFD600CBF7B1 /* SceneDelegate.swift */; };
@@ -45,11 +42,9 @@
 		21C0F6BD25E553690081E8C1 /* ViewAffectGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F6BC25E553690081E8C1 /* ViewAffectGrid.swift */; };
 		21C0F6D225E6BFB60081E8C1 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C0F6D125E6BFB60081E8C1 /* CustomTableViewCell.xib */; };
 		21C0F6D525E6BFC70081E8C1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F6D425E6BFC70081E8C1 /* CustomTableViewCell.swift */; };
-		21C0F6D825E6C0910081E8C1 /* Question5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F6D725E6C0910081E8C1 /* Question5.swift */; };
 		21C0F6E025E6ECFC0081E8C1 /* SliderQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C0F6DF25E6ECFC0081E8C1 /* SliderQuestion.xib */; };
 		21C0F6E325E6ED1E0081E8C1 /* GridQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C0F6E225E6ED1E0081E8C1 /* GridQuestion.xib */; };
 		21C0F6E625E6ED410081E8C1 /* OneAnswerQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C0F6E525E6ED410081E8C1 /* OneAnswerQuestion.xib */; };
-		21C0F6EE25E6EE140081E8C1 /* TableQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F6ED25E6EE140081E8C1 /* TableQuestion.swift */; };
 		21D309CC25DFB41100897A1A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D309CB25DFB41100897A1A /* CustomButton.swift */; };
 		21D309CF25DFC30000897A1A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D309CE25DFC30000897A1A /* CustomTextField.swift */; };
 		21D9FE5C25E6F0350024969B /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D9FE5B25E6F0350024969B /* ContentSizedTableView.swift */; };
@@ -78,15 +73,12 @@
 		21365A8825E4084F009024BF /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		21365A8C25E410AB009024BF /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		21365A8F25E4110D009024BF /* RadioButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonsController.swift; sourceTree = "<group>"; };
-		21365A9225E41270009024BF /* Question3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question3.swift; sourceTree = "<group>"; };
 		21365A9725E42034009024BF /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		21365A9A25E424C9009024BF /* color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = color.swift; sourceTree = "<group>"; };
-		21365A9D25E425F8009024BF /* Question4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question4.swift; sourceTree = "<group>"; };
 		213C38A425EE71D500781059 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
+		21519C65262CB3CC000E2E4F /* Notification.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notification.xcdatamodel; sourceTree = "<group>"; };
 		2170B7302628B851005AB9DD /* ParticipantAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantAnswer.swift; sourceTree = "<group>"; };
 		21749DB8262597700089A50A /* ViewInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInstruction.swift; sourceTree = "<group>"; };
-		2177573E25E3EC8000998C86 /* QuestionControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionControllerView.swift; sourceTree = "<group>"; };
-		217DFD0725E9143400083823 /* Question6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question6.swift; sourceTree = "<group>"; };
 		2187AE3125E90A3B0093D859 /* icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3.png; sourceTree = "<group>"; };
 		21933FD625DBFFD600CBF7B1 /* Sampling app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sampling app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21933FD925DBFFD600CBF7B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,11 +94,9 @@
 		21C0F6BC25E553690081E8C1 /* ViewAffectGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAffectGrid.swift; sourceTree = "<group>"; };
 		21C0F6D125E6BFB60081E8C1 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		21C0F6D425E6BFC70081E8C1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		21C0F6D725E6C0910081E8C1 /* Question5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question5.swift; sourceTree = "<group>"; };
 		21C0F6DF25E6ECFC0081E8C1 /* SliderQuestion.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderQuestion.xib; sourceTree = "<group>"; };
 		21C0F6E225E6ED1E0081E8C1 /* GridQuestion.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridQuestion.xib; sourceTree = "<group>"; };
 		21C0F6E525E6ED410081E8C1 /* OneAnswerQuestion.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneAnswerQuestion.xib; sourceTree = "<group>"; };
-		21C0F6ED25E6EE140081E8C1 /* TableQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableQuestion.swift; sourceTree = "<group>"; };
 		21D309CB25DFB41100897A1A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		21D309CE25DFC30000897A1A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21D9FE5B25E6F0350024969B /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
@@ -160,6 +150,9 @@
 		2133BBA52620A351008F1AC5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				212F037B262398B10096042F /* ViewAllCorrect.swift */,
+				212F03812623A45C0096042F /* ViewNotFull.swift */,
+				212F03842623A7390096042F /* ViewWelcome.swift */,
 				211D8D7525DDA63600FD4249 /* MainScreenViewController.swift */,
 				21933FDD25DBFFD600CBF7B1 /* ViewController.swift */,
 				213310CA25ED4A2D0032B7E1 /* QuestionViewController.swift */,
@@ -218,7 +211,6 @@
 				2133BBA52620A351008F1AC5 /* View */,
 				2133BBA32620A2FB008F1AC5 /* API */,
 				2187AE3025E90A210093D859 /* Icons */,
-				21C0F6EC25E6EDEF0081E8C1 /* Questions */,
 				21C0F6DE25E6EC950081E8C1 /* Help Lib */,
 				21C0F6DC25E6EC6F0081E8C1 /* Xib Views */,
 				21365A8B25E4107E009024BF /* Custom Elements */,
@@ -229,15 +221,8 @@
 				21933FE725DBFFD700CBF7B1 /* LaunchScreen.storyboard */,
 				21933FEA25DBFFD700CBF7B1 /* Info.plist */,
 				21933FE225DBFFD600CBF7B1 /* Sampling_app.xcdatamodeld */,
-				2177573E25E3EC8000998C86 /* QuestionControllerView.swift */,
-				21365A9225E41270009024BF /* Question3.swift */,
-				21365A9D25E425F8009024BF /* Question4.swift */,
-				21C0F6D725E6C0910081E8C1 /* Question5.swift */,
-				217DFD0725E9143400083823 /* Question6.swift */,
 				213C38A425EE71D500781059 /* UserNotification.swift */,
-				212F037B262398B10096042F /* ViewAllCorrect.swift */,
-				212F03812623A45C0096042F /* ViewNotFull.swift */,
-				212F03842623A7390096042F /* ViewWelcome.swift */,
+				21519C64262CB3CC000E2E4F /* Notification.xcdatamodeld */,
 			);
 			path = "Sampling app";
 			sourceTree = "<group>";
@@ -277,14 +262,6 @@
 				21C0F6DF25E6ECFC0081E8C1 /* SliderQuestion.xib */,
 				21C0F6E525E6ED410081E8C1 /* OneAnswerQuestion.xib */,
 				21C0F6E225E6ED1E0081E8C1 /* GridQuestion.xib */,
-			);
-			path = Questions;
-			sourceTree = "<group>";
-		};
-		21C0F6EC25E6EDEF0081E8C1 /* Questions */ = {
-			isa = PBXGroup;
-			children = (
-				21C0F6ED25E6EE140081E8C1 /* TableQuestion.swift */,
 			);
 			path = Questions;
 			sourceTree = "<group>";
@@ -376,13 +353,11 @@
 				2170B7312628B851005AB9DD /* ParticipantAnswer.swift in Sources */,
 				21365A9825E42034009024BF /* CustomSlider.swift in Sources */,
 				211D8D6925DD906A00FD4249 /* CardViewController.swift in Sources */,
-				21C0F6D825E6C0910081E8C1 /* Question5.swift in Sources */,
 				21365A8925E4084F009024BF /* CustomLabel.swift in Sources */,
 				21749DB9262597700089A50A /* ViewInstruction.swift in Sources */,
 				212F037C262398B10096042F /* ViewAllCorrect.swift in Sources */,
 				21365A8D25E410AB009024BF /* RadioButton.swift in Sources */,
 				21BE9C7C26246FE700484F7C /* CustomMultipleChoice.swift in Sources */,
-				21C0F6EE25E6EE140081E8C1 /* TableQuestion.swift in Sources */,
 				212F03852623A7390096042F /* ViewWelcome.swift in Sources */,
 				21C0F6D525E6BFC70081E8C1 /* CustomTableViewCell.swift in Sources */,
 				2133BBA12620A2A9008F1AC5 /* RestApi.swift in Sources */,
@@ -396,19 +371,16 @@
 				213310CB25ED4A2D0032B7E1 /* QuestionViewController.swift in Sources */,
 				21C0F6BD25E553690081E8C1 /* ViewAffectGrid.swift in Sources */,
 				21FA0CAD2628C15600E66398 /* AffectGridQuestion.swift in Sources */,
-				2177573F25E3EC8000998C86 /* QuestionControllerView.swift in Sources */,
 				21FA0CB02628C47300E66398 /* Question.swift in Sources */,
 				21FA0CB92628C87300E66398 /* MultipleChoiseQuestionVariant.swift in Sources */,
 				213C38A525EE71D500781059 /* UserNotification.swift in Sources */,
-				21365A9E25E425F8009024BF /* Question4.swift in Sources */,
 				21FA0CB62628C83000E66398 /* ChoiceQuestion.swift in Sources */,
 				213310CE25ED6CC10032B7E1 /* ButtonsController.swift in Sources */,
 				21933FDA25DBFFD600CBF7B1 /* AppDelegate.swift in Sources */,
+				21519C66262CB3CC000E2E4F /* Notification.xcdatamodeld in Sources */,
 				21A511042625C0A600BC0286 /* SetStyle.swift in Sources */,
 				21FD25012626231700CCB35A /* CustomTable.swift in Sources */,
-				21365A9325E41270009024BF /* Question3.swift in Sources */,
 				21933FDC25DBFFD600CBF7B1 /* SceneDelegate.swift in Sources */,
-				217DFD0825E9143400083823 /* Question6.swift in Sources */,
 				21FA0CAA2628C08A00E66398 /* DiscreteSliderQuestion.swift in Sources */,
 				21D9FE5C25E6F0350024969B /* ContentSizedTableView.swift in Sources */,
 				212F03822623A45C0096042F /* ViewNotFull.swift in Sources */,
@@ -642,6 +614,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		21519C64262CB3CC000E2E4F /* Notification.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				21519C65262CB3CC000E2E4F /* Notification.xcdatamodel */,
+			);
+			currentVersion = 21519C65262CB3CC000E2E4F /* Notification.xcdatamodel */;
+			path = Notification.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		21933FE225DBFFD600CBF7B1 /* Sampling_app.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

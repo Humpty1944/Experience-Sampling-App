@@ -20,6 +20,7 @@ class CardViewController: UIViewController {
         firstRect.layer.cornerRadius=24
         secondRect.layer.cornerRadius=24
         rectCode.layer.borderWidth=1
+        
         rectCode.layer.borderColor = CGColor(red: 196, green: 196, blue: 196, alpha: 1.0)
     }
 }

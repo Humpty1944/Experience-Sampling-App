@@ -175,7 +175,7 @@ final class CustomViewAffectGrid: UIView {
         self.addSubview(lables[3])
         lables[3].translatesAutoresizingMaskIntoConstraints = false
         lables[3].centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive=true
-        lables[3].rightAnchor.constraint(equalTo: self.leftAnchor, constant: 45).isActive=true
+        lables[3].rightAnchor.constraint(equalTo: self.leftAnchor, constant: 25).isActive=true
         ///____________________________________________________________
         lables[4].text=segments[4]
         lables[4].textColor=UIColor.darkGray
@@ -185,7 +185,7 @@ final class CustomViewAffectGrid: UIView {
         self.addSubview(lables[4])
         lables[4].translatesAutoresizingMaskIntoConstraints = false
         lables[4].centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive=true
-        lables[4].leftAnchor.constraint(equalTo: self.rightAnchor, constant: -45).isActive=true
+        lables[4].leftAnchor.constraint(equalTo: self.rightAnchor, constant: -35).isActive=true
         ///____________________________________________________________
         lables[5].text=segments[5]
         lables[5].textColor=UIColor.lightGray

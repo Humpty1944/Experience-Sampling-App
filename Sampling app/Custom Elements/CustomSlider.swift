@@ -93,7 +93,7 @@ class CustomSlider: UISlider {
         self.minimumValue=min
         self.maximumValue=max
         self.value = value_my
-        print(self.value,  self.maximumValue)
+       // print(self.value,  self.maximumValue)
         
     }
     
