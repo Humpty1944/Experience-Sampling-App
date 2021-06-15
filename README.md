@@ -89,16 +89,16 @@ o	Свободная память – не ниже 1 ГБ.
 
 **Пример**
 
-![Вход](https://github.com/РHumpty1944/Experience-Sampling-App/images/Рисунок1.png)
+![Вход](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок1.png)
 
 
-![Главный экран](https://github.com/РHumpty1944/Experience-Sampling-App/images/Рисунок2.png)
+![Главный экран](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок2.png)
 
 
-![Начало тестовой пробы](https://github.com/РHumpty1944/Experience-Sampling-App/images/Рисунок3.png)
+![Начало тестовой пробы](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок3.png)
 
 
-![Пример вопроса](https://github.com/РHumpty1944/Experience-Sampling-App/images/Рисунок4.png)
+![Пример вопроса](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок4.png)
 
 
-![Пример вопроса 2](https://github.com/РHumpty1944/Experience-Sampling-App/images/Рисунок5.png)
+![Пример вопроса 2](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок5.png)
