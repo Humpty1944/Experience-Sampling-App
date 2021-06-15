@@ -101,4 +101,4 @@ o	Свободная память – не ниже 1 ГБ.
 ![Пример вопроса](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок4.png)
 
 
-![Пример вопроса 2](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок5.png)
+![Пример вопроса 2](https://github.com/Humpty1944/Experience-Sampling-App/blob/4bd1335952a5beec2ff6b0aea6677432eb76872d/images/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA5.png)
