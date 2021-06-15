@@ -89,16 +89,16 @@ o	Свободная память – не ниже 1 ГБ.
 
 **Пример**
 
-![Вход](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок1.png)
+![Вход](https://github.com/Humpty1944/Experience-Sampling-App/blob/b356e5dd5dadb691e10a63ac64a9986cdd835107/images/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA1.png)
 
 
-![Главный экран](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок2.png)
+![Главный экран](https://github.com/Humpty1944/Experience-Sampling-App/blob/b356e5dd5dadb691e10a63ac64a9986cdd835107/images/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA2.png)
 
 
-![Начало тестовой пробы](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок3.png)
+![Начало тестовой пробы](https://github.com/Humpty1944/Experience-Sampling-App/blob/b356e5dd5dadb691e10a63ac64a9986cdd835107/images/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA3.png)
 
 
-![Пример вопроса](https://github.com/Humpty1944/Experience-Sampling-App/images/Рисунок4.png)
+![Пример вопроса](https://github.com/Humpty1944/Experience-Sampling-App/blob/b356e5dd5dadb691e10a63ac64a9986cdd835107/images/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA4.png)
 
 
 ![Пример вопроса 2](https://github.com/Humpty1944/Experience-Sampling-App/blob/4bd1335952a5beec2ff6b0aea6677432eb76872d/images/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA5.png)
